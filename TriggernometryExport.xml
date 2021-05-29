@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
+  <ExportedFolder Id="982df191-4a00-446b-a1ea-e1cb919d940b" Name="Local triggers" Enabled="true">
     <Folders>
       <Folder Id="cd65039d-ac54-481c-a483-a0a7ce1db5c3" Name="_Config_" Enabled="true">
         <Folders />
@@ -12282,4 +12283,5 @@
       </Folder>
     </Folders>
     <Triggers />
+  </ExportedFolder>
 </TriggernometryExport>
