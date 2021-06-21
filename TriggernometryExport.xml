@@ -2891,6 +2891,14 @@
                             </Actions>
                             <Condition Enabled="false" Grouping="Or" />
                           </Trigger>
+                          <Trigger Enabled="true" Name="The assault on Castrum Lacus Litore has begun" Id="cd3a52e2-9304-472d-ae84-4596c9a6f5e0" RegularExpression="The assault on Castrum Lacus Litore has begun">
+                            <Actions>
+                              <Action OrderNumber="1" SystemBeepFreqExpression="110" TextAuraFontSize="28.2" TextAuraFontName="Microsoft Sans Serif" ActionType="SystemBeep">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Trigger>
                         </Triggers>
                       </Folder>
                       <Folder Id="01a1d00d-e1b5-4143-bef5-e806843346b5" Name="Mark XIII-X Magitek Laborer" Enabled="true">
@@ -2908,14 +2916,6 @@
                       </Folder>
                     </Folders>
                     <Triggers>
-                      <Trigger Enabled="false" Name="The assault on Castrum Lacus Litore has begun" Id="cd3a52e2-9304-472d-ae84-4596c9a6f5e0" RegularExpression="The assault on Castrum Lacus Litore has begun">
-                        <Actions>
-                          <Action OrderNumber="1" SystemBeepFreqExpression="110" TextAuraFontSize="28.2" TextAuraFontName="Microsoft Sans Serif" ActionType="SystemBeep">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Trigger>
                       <Trigger Enabled="true" Name="The 4th Legion scorpion begins casting Electromagnetic Field" Id="d53129fc-c44d-4360-8a46-a531633d18dc" RegularExpression="The 4th Legion scorpion begins casting Electromagnetic Field">
                         <Actions>
                           <Action OrderNumber="1" TextAuraFontSize="28.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger">
@@ -3559,7 +3559,7 @@
                         </Folders>
                         <Triggers />
                       </Folder>
-                      <Folder Id="5c2bc4b7-a8f2-421c-aaa3-65688e33378c" Name="The Dalriada" Enabled="false">
+                      <Folder Id="5c2bc4b7-a8f2-421c-aaa3-65688e33378c" Name="The Dalriada" Enabled="true">
                         <Folders />
                         <Triggers>
                           <Trigger Enabled="false" Source="FFXIVNetwork" Name="4Th-Make Cuchulainn|5C92|Might Of Malice" Id="f198afa7-73b9-47ad-b1f6-95cd07805158" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|5C92\|">
@@ -3569,6 +3569,16 @@
                               </Action>
                             </Actions>
                             <Condition Enabled="false" Grouping="Or" />
+                          </Trigger>
+                          <Trigger Enabled="true" Name="The assault on the Dalriada has begun" Id="a2ab4e38-5f22-4f0b-9693-fc32e5bd3de1" RegularExpression="The assault on the Dalriada has begun">
+                            <Actions>
+                              <Action OrderNumber="1" SystemBeepFreqExpression="110" TextAuraFontSize="28.2" TextAuraFontName="Microsoft Sans Serif" ActionType="SystemBeep">
+                                <Condition Enabled="false" Grouping="Or" />
+                                <Conditions />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                            <Conditions />
                           </Trigger>
                         </Triggers>
                       </Folder>
@@ -3679,7 +3689,6 @@
                     <Actions>
                       <Action OrderNumber="1" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="28.2" TextAuraName="astDraw.*" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold, Italic" TextAuraFontSize="19.8" TextAuraForeground="Lime" TextAuraOutline="Black" TextAuraName="astDrawRanged" TextAuraExpression="ranged" TextAuraXIniExpression="830" TextAuraYIniExpression="1330" TextAuraWIniExpression="110" TextAuraHIniExpression="40" TextAuraOIniExpression="100" TextAuraFontName="Comic Sans MS" ActionType="TextAura" ExecutionDelayExpression="30" DebugLevel="Info">
                         <Condition Enabled="true" Grouping="Or">
@@ -3687,7 +3696,6 @@
                           <ConditionSingle Enabled="true" ExpressionL="${spell}" ExpressionTypeL="String" ExpressionR="Spire" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                           <ConditionSingle Enabled="true" ExpressionL="${spell}" ExpressionTypeL="String" ExpressionR="Ewer" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                         </Condition>
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold, Italic" TextAuraFontSize="19.8" TextAuraForeground="Lime" TextAuraOutline="Black" TextAuraName="astDrawMelee" TextAuraExpression="melee" TextAuraXIniExpression="830" TextAuraYIniExpression="1330" TextAuraWIniExpression="110" TextAuraHIniExpression="40" TextAuraOIniExpression="100" TextAuraFontName="Comic Sans MS" ActionType="TextAura" ExecutionDelayExpression="30" DebugLevel="Info">
                         <Condition Enabled="true" Grouping="Or">
@@ -3695,7 +3703,6 @@
                           <ConditionSingle Enabled="true" ExpressionL="${spell}" ExpressionTypeL="String" ExpressionR="Arrow" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                           <ConditionSingle Enabled="true" ExpressionL="${spell}" ExpressionTypeL="String" ExpressionR="Spear" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                         </Condition>
-                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
@@ -3981,7 +3988,7 @@
         </Folders>
         <Triggers />
       </Folder>
-      <Folder Id="7690ba25-0b5d-48f8-8b6e-41ec327e9e16" Name="test" Enabled="true">
+      <Folder Id="7690ba25-0b5d-48f8-8b6e-41ec327e9e16" Name="test" Enabled="false">
         <Folders>
           <Folder ZoneFilterEnabled="True" Id="accdebd7-32c9-48ce-9562-c8f4e199309c" ZoneFilterRegularExpression="^Zadnor$" Name="2 - Zadnor" Enabled="false">
             <Folders>
@@ -4817,7 +4824,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="And" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="MP is low" Id="08d26ab9-7e16-4f8a-9379-b43faab769c0" RegularExpression="^21\|.{42}\|(?&lt;player1&gt;[a-zA-Z-' ]{3,21})\|1D8A\|Lucid Dreaming\|[^|]*\|(?&lt;player2&gt;[a-zA-Z-' ]{3,21})\|F40E\|.{35}\|[^|]*\|[^|]*\|(?&lt;mp&gt;\d{1,5})\|10000\|" DebugLevel="Info" RefirePeriodExpression="1000">
+          <Trigger Enabled="false" Source="FFXIVNetwork" Name="MP is low" Id="08d26ab9-7e16-4f8a-9379-b43faab769c0" RegularExpression="^21\|.{42}\|(?&lt;player1&gt;[a-zA-Z-' ]{3,21})\|1D8A\|Lucid Dreaming\|[^|]*\|(?&lt;player2&gt;[a-zA-Z-' ]{3,21})\|F40E\|.{35}\|[^|]*\|[^|]*\|(?&lt;mp&gt;\d{1,5})\|10000\|" DebugLevel="Info" RefirePeriodExpression="1000">
             <Actions>
               <Action OrderNumber="1" TextAuraOp="DeactivateAura" TextAuraFontSize="28.2" TextAuraName="jta_lowMP" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" RefireInterrupt="True">
                 <Condition Enabled="false" Grouping="Or" />
