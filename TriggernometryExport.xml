@@ -2023,6 +2023,73 @@
                       </Trigger>
                     </Triggers>
                   </Folder>
+                  <Folder ZoneFilterEnabled="True" Id="81604c75-5d2f-446c-a12b-057195fd6f89" ZoneFilterRegularExpression="^Alexander\ -\ The\ Heart\ Of\ The\ Creator$" Name="Alexander - The Heart Of The Creator" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Name="1A52:Cruise Chaser starts using Optical Sight on Cruise Chaser" Id="a5749cf3-b4b2-4b59-9dd5-21f63ceec138" RegularExpression="1A52:Cruise Chaser starts using Optical Sight on Cruise Chaser" DebugLevel="Info" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Microsoft Sans Serif" TriggerId="f3d274d8-84bb-4398-b1cf-4412cc7f4678" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="282b:The Cruise Chaser readies Spin Crusher" Id="0402a884-1a49-4405-abb2-5eb6df59c4d9" RegularExpression="282b:The Cruise Chaser readies Spin Crusher" DebugLevel="Info" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Microsoft Sans Serif" TriggerId="43d8f059-51ba-42e9-b070-cbbd409c6531" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="1A51:Cruise Chaser starts using Optical Sight on Cruise Chaser" Id="d738a623-b056-4cd6-833f-caffd8aabd53" RegularExpression="1A51:Cruise Chaser starts using Optical Sight on Cruise Chaser" DebugLevel="Info" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Microsoft Sans Serif" TriggerId="bffeb9ed-6c5b-4ec5-9ca3-6cc27266c2f0" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="282b:The Cruise Chaser readies GA-100" Id="bfcf4129-04a8-40c9-9d0e-f1b68ece9a78" RegularExpression="282b:The Cruise Chaser readies GA-100" DebugLevel="Info" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Microsoft Sans Serif" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="282b:The Cruise Chaser readies Eternal Darkness" Id="df19f379-1292-42fc-92e7-95bff37984fe" RegularExpression="282b:The Cruise Chaser readies Eternal Darkness" DebugLevel="Info" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Microsoft Sans Serif" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="282b:The Cruise Chaser readies Propeller Wind" Id="c4a5f44e-8684-4453-b53e-845c3cfd90a7" RegularExpression="282b:The Cruise Chaser readies Propeller Wind" DebugLevel="Info" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Microsoft Sans Serif" TriggerId="d3f24308-60c8-436a-924c-ae9071c4954b" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="282b:The Cruise Chaser readies Limit Cut" Id="06e3a4e6-58cc-4c9b-a8d4-4f4907a825af" RegularExpression="282b:The Cruise Chaser readies Limit Cut" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="Attack shield from front" TextAuraFontSize="28.2" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold, Italic" TextAuraFontSize="28.2" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_asff" TextAuraExpression="Attack shield from front" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Comic Sans MS" ActionType="TextAura" DebugLevel="Info">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="28.2" TextAuraName="ta_asff" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="10000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
                 </Folders>
                 <Triggers />
               </Folder>
@@ -2895,6 +2962,22 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="282b:The heavenly otokage readies Nightmarish Light" Id="fe782051-506c-4b9c-81cc-bd0eec94acab" RegularExpression="282b:The heavenly otokage readies Nightmarish Light" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Microsoft Sans Serif" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="2F8E:Heavenly Onibi starts using Blinding Burst on Heavenly Onibi" Id="a6ba3bd9-0fce-49ee-98c0-2b0e82cce9e0" RegularExpression="2F8E:Heavenly Onibi starts using Blinding Burst on Heavenly Onibi" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Microsoft Sans Serif" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -5323,12 +5406,12 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="Use the Scepters" Id="4d898c40-d3b0-433e-9ede-3841f391e005" RegularExpression="">
+          <Trigger Enabled="true" Name="Use scepters" Id="4d898c40-d3b0-433e-9ede-3841f391e005" RegularExpression="">
             <Actions>
-              <Action OrderNumber="1" UseTTSTextExpression="Use the Scepters" TextAuraFontSize="28.2" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+              <Action OrderNumber="1" UseTTSTextExpression="Use scepters" TextAuraFontSize="28.2" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold, Italic" TextAuraFontSize="28.2" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_useScepters" TextAuraExpression="Use the Scepters" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Comic Sans MS" ActionType="TextAura" DebugLevel="Info">
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold, Italic" TextAuraFontSize="28.2" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_useScepters" TextAuraExpression="Use scepters" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Comic Sans MS" ActionType="TextAura" DebugLevel="Info">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="28.2" TextAuraName="ta_useScepters" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="10000">
@@ -5899,10 +5982,10 @@
           </Trigger>
           <Trigger Enabled="true" Name="Tank cleave" Id="43d8f059-51ba-42e9-b070-cbbd409c6531" RegularExpression="">
             <Actions>
-              <Action OrderNumber="1" UseTTSTextExpression="Tank cleave" TextAuraFontSize="28.2" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True">
+              <Action OrderNumber="1" UseTTSTextExpression="Avoid tank cleave" TextAuraFontSize="28.2" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold, Italic" TextAuraFontSize="28.2" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_tankCleave" TextAuraExpression="Tank cleave" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yone}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Comic Sans MS" ActionType="TextAura" DebugLevel="Info" RefireInterrupt="True">
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold, Italic" TextAuraFontSize="28.2" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_tankCleave" TextAuraExpression="Avoid tank cleave" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yone}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Comic Sans MS" ActionType="TextAura" DebugLevel="Info" RefireInterrupt="True">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="28.2" TextAuraName="ta_tankCleave" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="10000" RefireInterrupt="True">
