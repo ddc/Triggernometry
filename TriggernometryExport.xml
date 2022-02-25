@@ -218,10 +218,10 @@
           </Folder>
           <Folder Id="f051aa4a-9983-40c3-990e-f12a126102b9" Name="Deactivate" Enabled="true">
             <Folders>
-              <Folder Id="5bd4cef6-7c94-4a83-b22a-499a6bb529c8" Name="Deactivate_ant" Enabled="true">
+              <Folder Id="5bd4cef6-7c94-4a83-b22a-499a6bb529c8" Name="Deactivate_ant" Enabled="false">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="Deactivate everything - 5 (except ast cards)" Id="51d6e2c9-fec0-49b7-8a03-b8bd935dc42e" RegularExpression="(You have joined the critical engagement|Your item level has been synced to|You gain [^|]* mettle|is no longer sealed!)">
+                  <Trigger Enabled="false" Name="Deactivate everything - 5 (except ast cards)" Id="51d6e2c9-fec0-49b7-8a03-b8bd935dc42e" RegularExpression="(You have joined the critical engagement|Your item level has been synced to|You gain [^|]* mettle|is no longer sealed!)" DebugLevel="Verbose">
                     <Actions>
                       <Action OrderNumber="1" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="36" TextAuraName="ta_.*" TextAuraFontName="Times New Roman" ActionType="TextAura" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -238,7 +238,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Deactivate everything - 2 (msg)" Id="7ad5db41-59ef-49c6-a76d-a1127b59e964" RegularExpression="(has ended|You have left the sanctuary|01:Changed Zone|0839:You change to|You have been rewarded for your contribution in slaying the mark.)">
+                  <Trigger Enabled="false" Name="Deactivate everything - 2 (msg)" Id="7ad5db41-59ef-49c6-a76d-a1127b59e964" RegularExpression="(has ended|You have left the sanctuary|01:Changed Zone|0839:You change to|You have been rewarded for your contribution in slaying the mark.)" DebugLevel="Verbose">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
@@ -246,7 +246,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deactivate everything - 1" Id="140821b7-5a16-47bb-82eb-58180930ac91" RegularExpression="^03\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)">
+                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 1" Id="140821b7-5a16-47bb-82eb-58180930ac91" RegularExpression="^03\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" DebugLevel="Verbose">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
@@ -256,7 +256,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deactivate everything - 3 (death)" Id="13767794-052f-4f6e-92c0-f342bcf7f591" RegularExpression="^25\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)">
+                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 3 (death)" Id="13767794-052f-4f6e-92c0-f342bcf7f591" RegularExpression="^25\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" DebugLevel="Verbose">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
@@ -265,23 +265,21 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deactivate everything - 4 (wipe/clear)" Id="2a08f1cb-8c5b-4d46-a670-0dc515085ea3" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|400000(?&gt;03|10)">
+                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 4 (wipe/clear)" Id="2a08f1cb-8c5b-4d46-a670-0dc515085ea3" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|400000(?&gt;03|10)" DebugLevel="Verbose">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder Id="ef5c7044-0ae1-4440-8538-7470c0c24e73" Name="Deactivat_new" Enabled="false">
+              <Folder Id="ef5c7044-0ae1-4440-8538-7470c0c24e73" Name="Deactivat_new" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 1" Id="140821b7-5a16-47bb-82eb-58180930ac91" RegularExpression="^03\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deactivate everything - 1" Id="140821b7-5a16-47bb-82eb-58180930ac91" RegularExpression="^03\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" DebugLevel="Verbose">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
@@ -291,18 +289,17 @@
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 2 (msg)" Id="7ad5db41-59ef-49c6-a76d-a1127b59e964" RegularExpression="^00\|[^|]*\|[^|]*\|\|(?&lt;msg&gt;[^|]*)" RefirePeriodExpression="10000">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deactivate everything - 2 (msg)" Id="7ad5db41-59ef-49c6-a76d-a1127b59e964" RegularExpression="^00\|[^|]*\|[^|]*\|\|(?&lt;msg&gt;[^|]*)" DebugLevel="Verbose" RefirePeriodExpression="10000">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="You have (entered|left) a sanctuary" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR=".*has ended." ExpressionTypeR="String" ConditionType="RegexMatch" />
+                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="has ended" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 3 (death)" Id="3a3a975e-71c5-4dfc-9f7e-ec8546c83978" RegularExpression="^25\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deactivate everything - 3 (death)" Id="3a3a975e-71c5-4dfc-9f7e-ec8546c83978" RegularExpression="^25\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" DebugLevel="Verbose">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
@@ -312,7 +309,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 4 (wipe/clear)" Id="31f2be88-f373-40e3-950f-aaa48434f53d" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|400000(?&gt;03|10)">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deactivate everything - 4 (wipe/clear)" Id="31f2be88-f373-40e3-950f-aaa48434f53d" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|400000(?&gt;03|10)" DebugLevel="Verbose">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
@@ -320,43 +317,44 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 5 (except ast cards)" Id="51d6e2c9-fec0-49b7-8a03-b8bd935dc42e" RegularExpression="^00\|[^|]*\|[^|]*\|\|(?&lt;msg&gt;[^|]*)" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deactivate everything - 5 (except ast cards)" Id="51d6e2c9-fec0-49b7-8a03-b8bd935dc42e" RegularExpression="^00\|[^|]*\|[^|]*\|\|(?&lt;msg&gt;[^|]*)" DebugLevel="Verbose" PrevActions="Interrupt">
                     <Actions>
-                      <Action OrderNumber="1" AuraOp="DeactivateAllAura" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
+                      <Action OrderNumber="1" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="22.2" TextAuraName="^jta_*" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="22.2" TextAuraName="^jta_*" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                      <Action OrderNumber="2" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="22.2" TextAuraName="^ta_*" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="3" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="22.2" TextAuraName="^ta_*" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                      <Action OrderNumber="3" AuraOp="DeactivateAllAura" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" ActionType="Aura" ExecutionDelayExpression="100">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="4" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerOp="CancelAllTrigger" ActionType="Trigger">
+                      <Action OrderNumber="4" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerOp="CancelAllTrigger" ActionType="Trigger" ExecutionDelayExpression="100">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR=".*no longer sealed!" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="You have joined the critical engagement*." ExpressionTypeR="String" ConditionType="RegexMatch" />
-                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="Your item level has been synced to*." ExpressionTypeR="String" ConditionType="RegexMatch" />
-                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="You gain [^|]* mettle." ExpressionTypeR="String" ConditionType="RegexMatch" />
+                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="no longer sealed!" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="You have joined the critical engagement" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="Your item level has been synced to" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="^You gain [^|]* mettle.$" ExpressionTypeR="String" ConditionType="RegexMatch" />
                       <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="You have been rewarded for your contribution in slaying the mark." ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="You mount [^|]*" ExpressionTypeR="String" ConditionType="RegexNotMatch" />
+                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="You mount" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="^You have (entered|left) a sanctuary.$" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
                   </Trigger>
                 </Triggers>
               </Folder>
             </Folders>
             <Triggers>
-              <Trigger Enabled="true" Name="_DeactivateTrigger_" Id="fb4989b7-34b8-41be-8698-24e74197b60d" RegularExpression="">
+              <Trigger Enabled="true" Name="_DeactivateTrigger_" Id="fb4989b7-34b8-41be-8698-24e74197b60d" RegularExpression="" DebugLevel="Verbose">
                 <Actions>
-                  <Action OrderNumber="1" AuraOp="DeactivateAllAura" TextAuraOp="DeactivateAllAura" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
+                  <Action OrderNumber="1" AuraOp="DeactivateAllAura" TextAuraOp="DeactivateAllAura" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" TextAuraOp="DeactivateAllAura" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                  <Action OrderNumber="2" TextAuraOp="DeactivateAllAura" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerOp="CancelAllTrigger" ActionType="Trigger">
+                  <Action OrderNumber="3" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerOp="CancelAllTrigger" ActionType="Trigger" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -2896,116 +2894,6 @@
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
         </Triggers>
-      </Folder>
-      <Folder Id="c4eba995-8edb-4557-9e73-943a9b338abd" Name="Hunts" Enabled="true">
-        <Folders>
-          <Folder Id="3fbd8cea-1f58-41c9-8967-05d5b0cf4d05" Name="Maliktender" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="282b:Maliktender readies Sabotendance" Id="127c9e63-d769-4c2f-9507-5c760d1d6e97" RegularExpression="282b:Maliktender readies Sabotendance" DebugLevel="Info" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-              <Trigger Enabled="true" Name="4666:Maliktender starts using 50,000 Needles on Maliktender" Id="005801dd-60eb-41d6-8d0e-1a7abc93e91a" RegularExpression="4666:Maliktender starts using 50,000 Needles on Maliktender" DebugLevel="Info" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-              <Trigger Enabled="true" Name="4668:Maliktender starts using 990,000 Needles on Maliktender" Id="4972a40e-08dd-4b91-af43-d41d86292637" RegularExpression="4668:Maliktender starts using 990,000 Needles on Maliktender" DebugLevel="Info" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="b29d9e8c-282e-41b2-b6b2-c26b4c46ca9e" Name="Sugaar" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="282b:Sugaar readies Body Slam" Id="d26d4cb9-d0f8-4069-9fe2-96cea19ba58f" RegularExpression="282b:Sugaar readies Body Slam" DebugLevel="Info" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-              <Trigger Enabled="false" Name="282b:Sugaar readies Numbing Noise" Id="458c45aa-6085-46c3-bf84-9d29fbb38513" RegularExpression="282b:Sugaar readies Numbing Noise" DebugLevel="Info" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-              <Trigger Enabled="true" Name="282b:Sugaar readies Tail Snap" Id="d241831b-6e3c-4e12-ad6c-6d42f87fe040" RegularExpression="282b:Sugaar readies Tail Snap" DebugLevel="Info" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="4e66eac6-4765-4b6f-9c43-a43ffcd9732e" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="4801be3f-8782-4e08-ac0d-eb477e5911e3" Name="The mudman" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="282b:The mudman readies Bog Bequest" Id="b44cb1df-7c7e-4f70-a071-5b325c37268b" RegularExpression="282b:The mudman readies Bog Bequest" DebugLevel="Info" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="896b88df-539e-4998-bb4c-5be15281bd31" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-              <Trigger Enabled="true" Name="282b:The mudman readies Royal Flush" Id="9d54d3f6-3494-4f69-a996-737126a8708d" RegularExpression="282b:The mudman readies Royal Flush" DebugLevel="Info" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="ea600cfb-8009-46a3-b889-e69cb1e4ae6b" Name="Huracan" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="282b:Huracan readies Summer Heat" Id="f74cece6-a124-4324-8449-70d3451bf2ec" RegularExpression="282b:Huracan readies Summer Heat" DebugLevel="Info" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="c093e195-8965-44e8-b087-8f24a4c7cd22" Name="Sum" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="282b:Sum readies Nightmarish Light" Id="f698f22a-7bbb-41d5-937b-5240739dcab8" RegularExpression="282b:Sum readies Nightmarish Light" DebugLevel="Info" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-            </Triggers>
-          </Folder>
-        </Folders>
-        <Triggers />
       </Folder>
       <Folder Id="7ffade72-09ee-47b9-9e1c-59fd34ec56de" Name="0 - Other Dungeons" Enabled="true">
         <Folders>
@@ -6300,6 +6188,116 @@
                   <Trigger Enabled="true" Name="282b:Halicarnassus readies Spellblade Fire III" Id="b397b7ee-d539-4c21-9d5e-1553ea6d009e" RegularExpression="282b:Halicarnassus readies Spellblade Fire III" DebugLevel="Info" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers />
+          </Folder>
+          <Folder Id="c4eba995-8edb-4557-9e73-943a9b338abd" Name="Hunts" Enabled="true">
+            <Folders>
+              <Folder Id="3fbd8cea-1f58-41c9-8967-05d5b0cf4d05" Name="Maliktender" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="282b:Maliktender readies Sabotendance" Id="127c9e63-d769-4c2f-9507-5c760d1d6e97" RegularExpression="282b:Maliktender readies Sabotendance" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="4666:Maliktender starts using 50,000 Needles on Maliktender" Id="005801dd-60eb-41d6-8d0e-1a7abc93e91a" RegularExpression="4666:Maliktender starts using 50,000 Needles on Maliktender" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="4668:Maliktender starts using 990,000 Needles on Maliktender" Id="4972a40e-08dd-4b91-af43-d41d86292637" RegularExpression="4668:Maliktender starts using 990,000 Needles on Maliktender" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="b29d9e8c-282e-41b2-b6b2-c26b4c46ca9e" Name="Sugaar" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="282b:Sugaar readies Body Slam" Id="d26d4cb9-d0f8-4069-9fe2-96cea19ba58f" RegularExpression="282b:Sugaar readies Body Slam" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="false" Name="282b:Sugaar readies Numbing Noise" Id="458c45aa-6085-46c3-bf84-9d29fbb38513" RegularExpression="282b:Sugaar readies Numbing Noise" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="282b:Sugaar readies Tail Snap" Id="d241831b-6e3c-4e12-ad6c-6d42f87fe040" RegularExpression="282b:Sugaar readies Tail Snap" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="4e66eac6-4765-4b6f-9c43-a43ffcd9732e" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="4801be3f-8782-4e08-ac0d-eb477e5911e3" Name="The mudman" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="282b:The mudman readies Bog Bequest" Id="b44cb1df-7c7e-4f70-a071-5b325c37268b" RegularExpression="282b:The mudman readies Bog Bequest" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="896b88df-539e-4998-bb4c-5be15281bd31" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="282b:The mudman readies Royal Flush" Id="9d54d3f6-3494-4f69-a996-737126a8708d" RegularExpression="282b:The mudman readies Royal Flush" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="ea600cfb-8009-46a3-b889-e69cb1e4ae6b" Name="Huracan" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="282b:Huracan readies Summer Heat" Id="f74cece6-a124-4324-8449-70d3451bf2ec" RegularExpression="282b:Huracan readies Summer Heat" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="c093e195-8965-44e8-b087-8f24a4c7cd22" Name="Sum" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="282b:Sum readies Nightmarish Light" Id="f698f22a-7bbb-41d5-937b-5240739dcab8" RegularExpression="282b:Sum readies Nightmarish Light" DebugLevel="Info" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
