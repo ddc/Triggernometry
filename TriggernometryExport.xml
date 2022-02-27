@@ -496,7 +496,7 @@
               <Action OrderNumber="1" UseTTSTextExpression="${player1} shirk, on ${player2}" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="25.8" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_shirk" TextAuraExpression="[${player1}] shirk, on [${player2}]" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Ysix}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="25.8" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_shirk" TextAuraExpression="[${player1}] -&gt; [${player2}]" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Ysix}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_shirk" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="20000">
@@ -2830,7 +2830,7 @@
         <Folders>
           <Folder Id="46b7881a-6eb9-4243-948e-727aa8cd0042" Name="Eureka" Enabled="true">
             <Folders>
-              <Folder ZoneFilterEnabled="True" Id="af4eef7d-d704-42a7-8dac-adbf8bd1f482" ZoneFilterRegularExpression="The\ Forbidden\ Land,\ Eureka\ Hydatos" Name="4 - Eureka Hydatos" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="af4eef7d-d704-42a7-8dac-adbf8bd1f482" ZoneFilterRegularExpression="^the\ Forbidden\ Land,\ Eureka\ Hydatos$" Name="4 - Eureka Hydatos" Enabled="true">
                 <Folders>
                   <Folder Id="e0fe93de-4916-4452-a60c-3969a68b1771" ZoneFilterRegularExpression="The\ Forbidden\ Land,\ Eureka\ Hydatos" Name="Ovni" Enabled="true">
                     <Folders />
@@ -3063,7 +3063,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="b332847c-0d9c-41f8-9526-6553eaf159fb" ZoneFilterRegularExpression="The\ Forbidden\ Land,\ Eureka\ Pyros" Name="3 - Eureka Pyros" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="b332847c-0d9c-41f8-9526-6553eaf159fb" ZoneFilterRegularExpression="^the\ Forbidden\ Land,\ Eureka\ Pyros$" Name="3 - Eureka Pyros" Enabled="true">
                 <Folders>
                   <Folder Id="fd41ee5b-961b-4099-b087-278114fa4209" Name="Flauros" Enabled="true">
                     <Folders />
@@ -3202,7 +3202,7 @@
                 </Folders>
                 <Triggers />
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="713fa308-40b3-4c27-ab3d-22e37cdda14d" ZoneFilterRegularExpression="The\ Forbidden\ Land,\ Eureka\ Pagos" Name="2 - Eureka Pagos" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="713fa308-40b3-4c27-ab3d-22e37cdda14d" ZoneFilterRegularExpression="^the\ Forbidden\ Land,\ Eureka\ Pagos$" Name="2 - Eureka Pagos" Enabled="true">
                 <Folders>
                   <Folder Id="75a58fb6-04fc-4b9f-b7ff-82fe952df42d" Name="Louhi " Enabled="true">
                     <Folders />
@@ -3271,10 +3271,10 @@
             </Folders>
             <Triggers />
           </Folder>
-          <Folder Id="566eee42-6f99-4e83-951a-ca1a074238d4" ZoneFilterRegularExpression="^Heaven-On-High\ \ \(Floors\ 1-10\)$" Name="Heaven-On-High" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="566eee42-6f99-4e83-951a-ca1a074238d4" ZoneFilterRegularExpression="^Heaven-on-High" Name="Heaven-On-High" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="The Beacon of Passage is activated!" Id="568c7087-811d-4e11-bbf6-f28c46f757c2" RegularExpression="The Beacon of Passage is activated!">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="The Beacon of Passage is activated!" Id="568c7087-811d-4e11-bbf6-f28c46f757c2" RegularExpression="^00\|[^|]*\|0839\|\|The Beacon of Passage is activated!">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="88feb7c1-a004-4e66-a09b-d29c1c1a742c" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -3314,30 +3314,14 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="And" />
               </Trigger>
-              <Trigger Enabled="true" Name="2F8E:Heavenly Onibi starts using Blinding Burst on Heavenly Onibi" Id="a6ba3bd9-0fce-49ee-98c0-2b0e82cce9e0" RegularExpression="2F8E:Heavenly Onibi starts using Blinding Burst on Heavenly Onibi" PrevActions="Interrupt">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-              </Trigger>
-              <Trigger Enabled="true" Name="Exit is open" Id="0042cdba-51dc-4d3a-a128-cdec329f0115" RegularExpression="The sealed gate opens">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="88feb7c1-a004-4e66-a09b-d29c1c1a742c" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="db6345f4-2318-4ef9-ba71-46469354d8ca" ZoneFilterRegularExpression=".+Palace Of The Dead.+" Name="The Palace Of The Dead" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="db6345f4-2318-4ef9-ba71-46469354d8ca" ZoneFilterRegularExpression="^the\ Palace\ of\ the\ Dead" Name="The Palace Of The Dead" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="The Cairn of Passage is activated" Id="44dc23e9-292f-4e90-bf9f-1b6187608606" RegularExpression="The Cairn of Passage is activated">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="The Cairn of Passage is activated" Id="44dc23e9-292f-4e90-bf9f-1b6187608606" RegularExpression="^00\|[^|]*\|0839\|\|The Cairn of Passage is activated!">
                 <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="8db1c433-4105-4bfb-b8bf-5412f5dd0851" TriggerForce="regexp" ActionType="Trigger">
+                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="88feb7c1-a004-4e66-a09b-d29c1c1a742c" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -3362,6 +3346,14 @@
               <Trigger Enabled="true" Name="The palace pot readies Mysterious Light" Id="b0aab6d8-5749-4ebb-ac3f-10ac5370fbe8" RegularExpression="The palace pot readies Mysterious Light">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="The sealed gate opens" Id="0042cdba-51dc-4d3a-a128-cdec329f0115" RegularExpression="The sealed gate opens">
+                <Actions>
+                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="88feb7c1-a004-4e66-a09b-d29c1c1a742c" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -4427,7 +4419,7 @@
       </Folder>
       <Folder Id="7029c227-5f7c-4101-a9b0-3b0145c4267c" Name="1 - A Realm Reborn" Enabled="true">
         <Folders>
-          <Folder ZoneFilterEnabled="True" Id="316d84fb-a761-4f21-bdcb-ff1e385dee49" ZoneFilterRegularExpression="Halatali\ \(Hard\)" Name="50 - Halatali (Hard)" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="316d84fb-a761-4f21-bdcb-ff1e385dee49" ZoneFilterRegularExpression="^Halatali\ \(Hard\)$" Name="50 - Halatali (Hard)" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Mumuepo The Beholden starts using Standstill on Mumuepo The Beholden" Id="506aed63-0183-4ea9-823b-f82b7144d230" RegularExpression="Mumuepo The Beholden starts using Standstill on Mumuepo The Beholden">
@@ -4488,7 +4480,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="050ee050-8971-4bf2-bbd4-0adba1a2813a" ZoneFilterRegularExpression="The\ Sunken\ Temple\ Of\ Qarn" Name="35 - The Sunken Temple Of Qarn" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="050ee050-8971-4bf2-bbd4-0adba1a2813a" ZoneFilterRegularExpression="^the\ Sunken\ Temple\ of\ Qarn$" Name="35 - The Sunken Temple Of Qarn" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="You suffer the effect of Doom" Id="59a3b29b-0ba2-48ed-aa3e-6664952aeadc" RegularExpression="You suffer the effect of Doom">
@@ -4501,7 +4493,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="2f96a733-0773-4c19-9b1f-7d4e713728fc" ZoneFilterRegularExpression="The\ Sunken\ Temple\ Of\ Qarn\ \(Hard\)" Name="50 - The Sunken Temple Of Qarn (Hard)" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="2f96a733-0773-4c19-9b1f-7d4e713728fc" ZoneFilterRegularExpression="^the\ Sunken\ Temple\ of\ Qarn\ \(Hard\)$" Name="50 - The Sunken Temple Of Qarn (Hard)" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="24,998 needles... 24,999 needles... 25,000 needles" Id="10fe0e8e-89f9-450c-a48e-1995d5c90daf" RegularExpression="24,998 needles... 24,999 needles... 25,000 needles">
@@ -4534,7 +4526,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="46fa0c4d-6535-49ba-b795-9788e2c22ce9" ZoneFilterRegularExpression="Cutter's\ Cry" Name="38 - Cutter's Cry" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="46fa0c4d-6535-49ba-b795-9788e2c22ce9" ZoneFilterRegularExpression="^Cutter's\ Cry$" Name="38 - Cutter's Cry" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dragon's Voice" Id="524d0833-9bc7-48ef-9d39-71340a32bd4e" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|the Dragon's Voice">
@@ -4571,7 +4563,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="137146cf-6232-4049-b8d0-d3eb47293abe" ZoneFilterRegularExpression="Dzemael\ Darkhold" Name="44 - Dzemael Darkhold" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="137146cf-6232-4049-b8d0-d3eb47293abe" ZoneFilterRegularExpression="^Dzemael\ Darkhold$" Name="44 - Dzemael Darkhold" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="The All-seeing Eye readies (Dread|Cursed) Gaze" Id="6912dc22-c5ff-4bda-bef5-1e108e03f967" RegularExpression="The All-seeing Eye readies (Dread|Cursed) Gaze">
@@ -4584,7 +4576,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="da502503-ddea-4bec-a948-044f0852fedc" ZoneFilterRegularExpression="The\ Aurum\ Vale" Name="47 - The Aurum Vale" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="da502503-ddea-4bec-a948-044f0852fedc" ZoneFilterRegularExpression="^the\ Aurum\ Vale$" Name="47 - The Aurum Vale" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Coincounter starts using Eye Of The Beholder on Coincounter" Id="ac664b44-efe5-411f-8527-e852060a622a" RegularExpression="Coincounter starts using Eye Of The Beholder on Coincounter">
@@ -4621,7 +4613,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="5ab1473e-e1b8-48f4-82e2-d745fddadac2" ZoneFilterRegularExpression="Snowcloak" Name="50 - Snowcloak" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="5ab1473e-e1b8-48f4-82e2-d745fddadac2" ZoneFilterRegularExpression="^Snowcloak$" Name="50 - Snowcloak" Enabled="true">
             <Folders>
               <Folder Id="ea0a4d0f-7430-482c-aec9-3caf96f09c2d" Name="Fenrir" Enabled="true">
                 <Folders />
@@ -4647,7 +4639,7 @@
             </Folders>
             <Triggers />
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="8293e063-1238-48b3-ac8b-2daf3cce7b9e" ZoneFilterRegularExpression="The\ Keeper\ Of\ The\ Lake" Name="50 - The Keeper Of The Lake" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="8293e063-1238-48b3-ac8b-2daf3cce7b9e" ZoneFilterRegularExpression="^the\ Keeper\ of\ the\ Lake$" Name="50 - The Keeper Of The Lake" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Einhander readies Heavy Swing" Id="5ad7cdc3-bb01-4b17-af3c-43548986fb31" RegularExpression="Einhander readies Heavy Swing">
@@ -4735,7 +4727,7 @@
                 </Folders>
                 <Triggers />
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="c655fe93-8a73-44b1-a77e-bdb969f0c084" ZoneFilterRegularExpression="The\ World\ Of\ Darkness" Name="50 - The World Of Darkness" Enabled="true">
+              <Folder Id="c655fe93-8a73-44b1-a77e-bdb969f0c084" ZoneFilterRegularExpression="The\ World\ Of\ Darkness" Name="50 - The World Of Darkness" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Heat Wave" Id="3b4054d3-0dae-4846-9f4e-1a6d3310c9ca" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|CDE\|Heat Wave" PrevActions="Interrupt">
@@ -4761,7 +4753,7 @@
           </Folder>
           <Folder Id="0e1743b1-b5a4-4e62-85f8-077e8f46f884" Name="Trials" Enabled="true">
             <Folders>
-              <Folder ZoneFilterEnabled="True" Id="5c82a532-7743-44df-bb66-007d8b59cd44" ZoneFilterRegularExpression="^Urth's\ Fount$" Name="Urth's Fount (odin)" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="5c82a532-7743-44df-bb66-007d8b59cd44" ZoneFilterRegularExpression="^Urth's\ Fount$" Name="Urth's Fount [odin]" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="Odin readies Sanngetall" Id="9d27da33-657a-467d-8b46-ffb14d23df7a" RegularExpression="Odin readies Sanngetall" PrevActions="Interrupt">
@@ -4790,7 +4782,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="86d98097-d321-464d-bd40-7be3b32ee098" ZoneFilterRegularExpression="^The\ Minstrel's\ Ballad:\ Ultima's\ Bane$" Name="The Minstrel's Ballad: Ultima's Bane" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="86d98097-d321-464d-bd40-7be3b32ee098" ZoneFilterRegularExpression="^the\ Minstrel's\ Ballad:\ Ultima's\ Bane$" Name="The Minstrel's Ballad: Ultima's Bane" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="The Ultima Weapon readies Tank Purge" Id="40c1c9a8-e5db-43f3-ad07-72ed917b1ce7" RegularExpression="The Ultima Weapon readies Tank Purge" PrevActions="Interrupt">
@@ -4819,7 +4811,7 @@
       </Folder>
       <Folder Id="be96ccc1-00a7-48a0-9c7b-30d72195ea4e" Name="2 - Heavensward" Enabled="true">
         <Folders>
-          <Folder ZoneFilterEnabled="True" Id="c6e72668-f92e-47eb-82be-54691d2f7ef6" ZoneFilterRegularExpression="The\ Dusk\ Vigil" Name="51 - The Dusk Vigil" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="c6e72668-f92e-47eb-82be-54691d2f7ef6" ZoneFilterRegularExpression="^the\ Dusk\ Vigil$" Name="51 - The Dusk Vigil" Enabled="true">
             <Folders>
               <Folder Id="cdf8017a-761c-4a13-ac5d-521eb9eb94c0" Name="Opinicus " Enabled="true">
                 <Folders />
@@ -4845,7 +4837,7 @@
             </Folders>
             <Triggers />
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="fb3cb8a5-e10d-4797-9efd-213cce09f517" ZoneFilterRegularExpression="Sohm\ Al" Name="53 - Sohm Al" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="fb3cb8a5-e10d-4797-9efd-213cce09f517" ZoneFilterRegularExpression="^Sohm\ Al$" Name="53 - Sohm Al" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Myath readies Mad Dash" Id="c0e8e82b-5bd0-467e-8730-2e310427ac81" RegularExpression="Myath readies Mad Dash">
@@ -4858,7 +4850,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="55df3e36-c616-4f87-9fdc-88d8761fa8fd" ZoneFilterRegularExpression="The\ Aery" Name="55 - The Aery" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="55df3e36-c616-4f87-9fdc-88d8761fa8fd" ZoneFilterRegularExpression="^the\ Aery$" Name="55 - The Aery" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ionospheric Charge" Id="e6c754e8-e179-4c93-8d09-7132131c9e9f" RegularExpression="^20\|[^|]*\|[^|]*\|Rangda\|F30\|Ionospheric Charge">
@@ -4879,7 +4871,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="3d6cccc5-0bce-496d-bb08-21893c26486a" ZoneFilterRegularExpression="The\ Aetherochemical\ Research\ Facility" Name="60 - The Aetherochemical Research Facility" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="3d6cccc5-0bce-496d-bb08-21893c26486a" ZoneFilterRegularExpression="^the\ Aetherochemical\ Research\ Facility$" Name="60 - The Aetherochemical Research Facility" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Harmachis readies Ballistic Missile" Id="2b31b3ca-ae3f-47be-9d1e-fefd6593d377" RegularExpression="Harmachis readies Ballistic Missile">
@@ -4908,7 +4900,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="b58a0411-2ea9-43e8-b79c-ed3f84f79c49" ZoneFilterRegularExpression="Xelphatol" Name="60 - Xelphatol" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="b58a0411-2ea9-43e8-b79c-ed3f84f79c49" ZoneFilterRegularExpression="^Xelphatol$" Name="60 - Xelphatol" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Dotoli Ciloc readies On High" Id="2657f8ed-ba96-4ecb-8b6b-81a62f02039c" RegularExpression="Dotoli Ciloc readies On High">
@@ -4921,7 +4913,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="c2a016c2-d31a-452f-95f2-8ba3620d6d92" ZoneFilterRegularExpression="Baelsar's\ Wall" Name="60 - Baelsar's Wall" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="c2a016c2-d31a-452f-95f2-8ba3620d6d92" ZoneFilterRegularExpression="^Baelsar's\ Wall$" Name="60 - Baelsar's Wall" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="The armored weapon uses Dynamic Sensory Jammer" Id="f1c1d1ec-fa4a-463a-bbc9-8a65c9514c12" RegularExpression="The armored weapon uses Dynamic Sensory Jammer">
@@ -4952,7 +4944,7 @@
           </Folder>
           <Folder Id="d33f7fc6-f861-4b88-92ad-9705ec03f70f" Name="Raids" Enabled="true">
             <Folders>
-              <Folder ZoneFilterEnabled="True" Id="1fceb1f0-bb8e-499f-b321-4f109b0c8eef" ZoneFilterRegularExpression="The\ Void\ Ark" Name="60 - The Void Ark" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="1fceb1f0-bb8e-499f-b321-4f109b0c8eef" ZoneFilterRegularExpression="^the\ Void\ Ark$" Name="60 - The Void Ark" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="Cetus readies Electric Whorl" Id="2dade118-88ef-4825-8351-b2b8584f5b53" RegularExpression="Cetus readies Electric Whorl">
@@ -5053,7 +5045,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="9d8237a4-6a2d-4a69-9311-9ce193010aad" ZoneFilterRegularExpression="The\ Weeping\ City\ Of\ Mhach" Name="60 - The Weeping City Of Mhach" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="9d8237a4-6a2d-4a69-9311-9ce193010aad" ZoneFilterRegularExpression="^the\ Weeping\ City\ Of\ Mhach$" Name="60 - The Weeping City Of Mhach" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="false" Name="Arachne Eve begins casting Frond Affeared" Id="1f1d0596-d2c6-4d59-a481-a8d071d1939e" RegularExpression="Arachne Eve begins casting Frond Affeared">
@@ -5109,7 +5101,7 @@
             </Folders>
             <Triggers />
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="a32cc857-3395-4c17-b16c-bed8dfb03900" ZoneFilterRegularExpression="The\ Lost\ City\ Of\ Amdapor\ \(Hard\)" Name="60 - The Lost City of Amdapor (Hard)" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="a32cc857-3395-4c17-b16c-bed8dfb03900" ZoneFilterRegularExpression="^the\ Lost\ City\ of\ Amdapor\ \(Hard\)$" Name="60 - The Lost City of Amdapor (Hard)" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="The mana pot readies Mysterious Light" Id="24f4318a-df28-4b31-a21a-7da2d1ea1464" RegularExpression="The mana pot readies Mysterious Light">
@@ -5138,7 +5130,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="fc2e470c-89d9-4db9-8f4a-f15a5f3007d6" ZoneFilterRegularExpression="The\ Great\ Gubal\ Library" Name="59 - The Great Gubal Library" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="fc2e470c-89d9-4db9-8f4a-f15a5f3007d6" ZoneFilterRegularExpression="^the\ Great\ Gubal\ Library$" Name="59 - The Great Gubal Library" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="The demon tome readies Repel" Id="3095b544-a3d1-4ad6-9e29-2b70e8643fca" RegularExpression="The demon tome readies Repel">
@@ -5153,7 +5145,7 @@
           </Folder>
           <Folder Id="6344e823-0dc8-4bed-a1fd-38b044c074e1" Name="Trials" Enabled="true">
             <Folders>
-              <Folder ZoneFilterEnabled="True" Id="c0666152-0ce9-448a-8aed-fa7ae28f442e" ZoneFilterRegularExpression="^Alexander\ -\ The\ Arm\ Of\ The\ Father$" Name="Alexander - The Arm of the Father" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="c0666152-0ce9-448a-8aed-fa7ae28f442e" ZoneFilterRegularExpression="^Alexander\ -\ The\ Arm\ of\ the\ Father$" Name="Alexander - The Arm of the Father" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="The living liquid uses Splash" Id="7b8d4c44-20ad-4332-bd15-8781a1d7f55b" RegularExpression="The living liquid uses Splash" PrevActions="Interrupt">
@@ -5267,26 +5259,31 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="a8e67bbf-18e6-4cd0-9af0-78d58c997df9" ZoneFilterRegularExpression="^Alexander\ -\ The\ Fist\ Of\ The\ Son$" Name="Alexander - The Fist of the Son" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Name="Ratfinx Twinkledinks readies Boost" Id="d99d21b3-02f8-42e0-aa20-6fd598490a85" RegularExpression="Ratfinx Twinkledinks readies Boost" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" UseTTSTextExpression="Go Bird" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+              <Folder ZoneFilterEnabled="True" Id="a8e67bbf-18e6-4cd0-9af0-78d58c997df9" ZoneFilterRegularExpression="^Alexander\ -\ The\ Fist\ of\ the\ Son$" Name="Alexander - The Fist of the Son" Enabled="true">
+                <Folders>
+                  <Folder Id="ac973014-8bc4-4b6c-967f-4bed82ab2b7f" Name="Ratfinx Twinkledinks" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Boost" Id="d99d21b3-02f8-42e0-aa20-6fd598490a85" RegularExpression="^20\|[^|]*\|[^|]*\|Ratfinx Twinkledinks\|1592\|Boost\|" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="Go Bird" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_bird" TextAuraExpression="Go Bird (purple)" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_bird" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_bird" TextAuraExpression="Go Bird (purple)" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_bird" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                </Triggers>
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+                <Triggers />
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="53f7c50b-1efb-4996-bb4d-0a3df2297aad" ZoneFilterRegularExpression="^The\ Minstrel's\ Ballad:\ Nidhogg's\ Rage$" Name="The Minstrel's Ballad: Nidhogg's Rage" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="53f7c50b-1efb-4996-bb4d-0a3df2297aad" ZoneFilterRegularExpression="^the\ Minstrel's\ Ballad:\ Nidhogg's\ Rage$" Name="The Minstrel's Ballad: Nidhogg's Rage" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="Nidhogg readies Hot Tail" Id="be6042e2-f510-423e-b1b1-8b5e1efee93d" RegularExpression="Nidhogg readies Hot Tail" PrevActions="Interrupt">
@@ -5345,7 +5342,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="6e67e064-bd40-4009-9ee8-d15ee7716af2" ZoneFilterRegularExpression="^The\ Minstrel's\ Ballad:\ Thordan's\ Reign$" Name="The Minstrel's Ballad: Thordan's Reign" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="6e67e064-bd40-4009-9ee8-d15ee7716af2" ZoneFilterRegularExpression="^the\ Minstrel's\ Ballad:\ Thordan's\ Reign$" Name="The Minstrel's Ballad: Thordan's Reign" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="King Thordan begins casting The Dragon's Gaze" Id="9e7cc3cc-85cd-45e9-af31-fd569716ea30" RegularExpression="King Thordan begins casting The Dragon's Gaze" PrevActions="Interrupt">
@@ -5434,7 +5431,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="199202701312" ZoneFilterEnabled="True" Id="1d70a0c7-9260-4103-90bd-95007cb177cb" ZoneFilterRegularExpression="^Alexander\ -\ The\ Soul\ Of\ The\ Creator$" Name="Alexander - The Soul Of The Creator" Enabled="true">
+              <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="199202701312" ZoneFilterEnabled="True" Id="1d70a0c7-9260-4103-90bd-95007cb177cb" ZoneFilterRegularExpression="^Alexander\ -\ The\ Soul\ of\ the\ Creator$" Name="Alexander - The Soul Of The Creator" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="Alexander Prime readies Timegate&#xA;" Id="f746f83e-4877-4c59-8401-5348a900e373" RegularExpression="Alexander Prime readies Timegate&#xA;" PrevActions="Interrupt">
@@ -5447,7 +5444,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="81604c75-5d2f-446c-a12b-057195fd6f89" ZoneFilterRegularExpression="^Alexander\ -\ The\ Heart\ Of\ The\ Creator$" Name="Alexander - The Heart Of The Creator" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="81604c75-5d2f-446c-a12b-057195fd6f89" ZoneFilterRegularExpression="^Alexander\ -\ The\ Heart\ of\ the\ Creator$" Name="Alexander - The Heart Of The Creator" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="1A52:Cruise Chaser starts using Optical Sight on Cruise Chaser" Id="a5749cf3-b4b2-4b59-9dd5-21f63ceec138" RegularExpression="1A52:Cruise Chaser starts using Optical Sight on Cruise Chaser" PrevActions="Interrupt">
@@ -5514,7 +5511,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="f791f067-14d4-4ad3-980c-a4f1e78c6564" ZoneFilterRegularExpression="^The\ Limitless\ Blue\ \(Extreme\)$" Name="The Limitless Blue (Extreme)" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="f791f067-14d4-4ad3-980c-a4f1e78c6564" ZoneFilterRegularExpression="^the\ Limitless\ Blue\ \(Extreme\)$" Name="The Limitless Blue (Extreme)" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="Will Of The Wind" Id="9f7530a8-0113-42a1-b39b-b166e6d610bf" RegularExpression="^\[.{25}:(?&lt;player&gt;[a-zA-Z-' ]{3,21}) gains the effect of Will Of The Wind" PrevActions="Interrupt">
@@ -5547,7 +5544,7 @@
       </Folder>
       <Folder Id="e8547e38-e96c-47cc-ba3c-8ac725dbc4ad" Name="3 - Stormblood" Enabled="true">
         <Folders>
-          <Folder ZoneFilterEnabled="True" Id="11f3bc35-67b5-4ce9-8b38-f6915d0c347f" ZoneFilterRegularExpression="The\ Sirensong\ Sea" Name="61 - The Sirensong Sea" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="11f3bc35-67b5-4ce9-8b38-f6915d0c347f" ZoneFilterRegularExpression="^The\ Sirensong\ Sea$" Name="61 - The Sirensong Sea" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Lorelei starts using Somber Melody on Lorelei" Id="5886ef5a-dd30-4449-8415-659688c54c65" RegularExpression="Lorelei starts using Somber Melody on Lorelei">
@@ -5576,7 +5573,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="cadb092f-a4c8-49be-ab60-a2665fe33cd6" ZoneFilterRegularExpression="Shisui\ Of\ The\ Violet\ Tides" Name="63 - Shisui Of The Violet Tides" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="cadb092f-a4c8-49be-ab60-a2665fe33cd6" ZoneFilterRegularExpression="^Shisui\ of\ the\ Violet\ Tides$" Name="63 - Shisui Of The Violet Tides" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="The Ruby Princess readies Seduce" Id="3dabe663-afd9-41e6-85e2-b4014079214d" RegularExpression="The Ruby Princess readies Seduce">
@@ -5597,7 +5594,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="e857a3d0-c0ea-46d7-a06e-07f167b28474" ZoneFilterRegularExpression="Bardam's\ Mettle" Name="65 - Bardam's Mettle" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="e857a3d0-c0ea-46d7-a06e-07f167b28474" ZoneFilterRegularExpression="^Bardam's\ Mettle$" Name="65 - Bardam's Mettle" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="The yol readies Eye of the Fierce" Id="9cc277d6-fe94-49d1-b472-04132e2054c2" RegularExpression="The yol readies Eye of the Fierce">
@@ -5618,7 +5615,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="53c5c812-9300-455e-9ec3-cec5b40bd4b1" ZoneFilterRegularExpression="Castrum\ Abania" Name="69 - Castrum Abania" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="53c5c812-9300-455e-9ec3-cec5b40bd4b1" ZoneFilterRegularExpression="^Castrum\ Abania$" Name="69 - Castrum Abania" Enabled="true">
             <Folders>
               <Folder Id="90d66a88-eb97-4180-a460-10d934f144ff" Name="Number XXIV" Enabled="true">
                 <Folders />
@@ -5660,7 +5657,7 @@
             </Folders>
             <Triggers />
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="ab95ff27-f070-4f5d-95ee-c3638da5757e" ZoneFilterRegularExpression="The\ Burn" Name="70 - The Burn" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="ab95ff27-f070-4f5d-95ee-c3638da5757e" ZoneFilterRegularExpression="^the\ Burn$" Name="70 - The Burn" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="3147:Mist Dragon starts using Deep Fog on Mist Dragon" Id="16695b7b-8f56-41e2-a2a9-e8ea6fa1220e" RegularExpression="3147:Mist Dragon starts using Deep Fog on Mist Dragon">
@@ -5673,7 +5670,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="c4dde723-91d5-42f1-a4e4-0f71788d700f" ZoneFilterRegularExpression="Hells'\ Lid" Name="70 - Hells' Lid" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="c4dde723-91d5-42f1-a4e4-0f71788d700f" ZoneFilterRegularExpression="^Hells'\ Lid$" Name="70 - Hells' Lid" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="The boltstorm nue readies Spark" Id="b2831718-2e95-464d-95c8-19ac99ae8000" RegularExpression="The boltstorm nue readies Spark">
@@ -5702,7 +5699,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="c0612752-0f9f-4545-8e70-336d316fad9e" ZoneFilterRegularExpression="The\ Ghimlyt\ Dark" Name="70 - The Ghimlyt Dark" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="c0612752-0f9f-4545-8e70-336d316fad9e" ZoneFilterRegularExpression="^the\ Ghimlyt\ Dark$" Name="70 - The Ghimlyt Dark" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="The Mark III-B magitek colossus readies Magitek Ray" Id="a055d740-4ee4-443b-9391-409634b11443" RegularExpression="The Mark III-B magitek colossus readies Magitek Ray">
@@ -5731,7 +5728,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="c9a31d3f-3c2e-4757-8b8e-c25190fd5d51" ZoneFilterRegularExpression="The\ Swallow's\ Compass" Name="70 - The Swallow's Compass" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="c9a31d3f-3c2e-4757-8b8e-c25190fd5d51" ZoneFilterRegularExpression="^the\ Swallow's\ Compass$" Name="70 - The Swallow's Compass" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Otengu begins casting Might of the Tengu" Id="b2e31e8f-f2d7-4e83-bd0a-be8dd7146ed7" RegularExpression="Otengu begins casting Might of the Tengu">
@@ -5800,7 +5797,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="97f2f7cd-3abe-4894-bb38-6b9f64d3e4d9" ZoneFilterRegularExpression="Saint\ Mocianne's\ Arboretum\ \(Hard\)" Name="70 - Saint Mocianne's Arboretum (Hard)" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="97f2f7cd-3abe-4894-bb38-6b9f64d3e4d9" ZoneFilterRegularExpression="^Saint\ Mocianne's\ Arboretum\ \(Hard\)$" Name="70 - Saint Mocianne's Arboretum (Hard)" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Lakhamu readies Earthquake" Id="346a9fba-d966-49a5-b5c7-b0c8c7efbb0a" RegularExpression="Lakhamu readies Earthquake">
@@ -5861,7 +5858,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="c7df155d-2949-4965-a2de-2a7527c0007a" ZoneFilterRegularExpression="The\ Drowned\ City\ Of\ Skalla" Name="70 - The Drowned City of Skalla" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="c7df155d-2949-4965-a2de-2a7527c0007a" ZoneFilterRegularExpression="^the\ Drowned\ City\ of\ Skalla$" Name="70 - The Drowned City of Skalla" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Kelpie starts using Hydro Pull on Kelpie" Id="c720e24f-c057-409a-8b3a-948c6baea351" RegularExpression="Kelpie starts using Hydro Pull on Kelpie">
@@ -6001,7 +5998,7 @@
       </Folder>
       <Folder Id="d5cd8712-1cb6-46c6-9f3b-ea5bd185abb9" Name="4 - Shadowbringers" Enabled="true">
         <Folders>
-          <Folder ZoneFilterEnabled="True" Id="e29d237d-0de4-4c88-abb3-2594da9ec0be" ZoneFilterRegularExpression="Holminster\ Switch" Name="71 - Holminster Switch" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="e29d237d-0de4-4c88-abb3-2594da9ec0be" ZoneFilterRegularExpression="^Holminster\ Switch$" Name="71 - Holminster Switch" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Philia readies Fierce Beating" Id="41f1e913-eaf8-4e3a-ba55-6a86247dc6af" RegularExpression="Philia readies Fierce Beating">
@@ -6022,7 +6019,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="cda4ccaa-2b95-48d5-9566-2fa488e280f3" ZoneFilterRegularExpression="Dohn\ Mheg" Name="73 - Dohn Mheg" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="cda4ccaa-2b95-48d5-9566-2fa488e280f3" ZoneFilterRegularExpression="^Dohn\ Mheg$" Name="73 - Dohn Mheg" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Corrosive Bile" Id="9e76bc50-1141-475a-9b92-dfe047b4857d" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|34EB\|Corrosive Bile">
@@ -6051,7 +6048,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="9b03ea5d-3023-4022-810d-7dc3d33771d5" ZoneFilterRegularExpression="Anammesis\ Anyder" Name="80 - Anammesis Anyder" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="9b03ea5d-3023-4022-810d-7dc3d33771d5" ZoneFilterRegularExpression="^Anamnesis\ Anyder$" Name="80 - Anammesis Anyder" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="Unknown readies Inscrutability" Id="e1509883-fd7a-4606-8b4d-92598d6b9fd5" RegularExpression="Unknown readies Inscrutability">
@@ -6088,7 +6085,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="1f3f2110-b971-49b2-9f9b-2e54c259be52" ZoneFilterRegularExpression="The\ Qitana\ Ravel" Name="75 - The Qitana Ravel" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="1f3f2110-b971-49b2-9f9b-2e54c259be52" ZoneFilterRegularExpression="^the\ Qitana\ Ravel$" Name="75 - The Qitana Ravel" Enabled="true">
             <Folders>
               <Folder Id="baa82273-d18f-419b-af5c-cdbb79f5038b" Name="Lozatl" Enabled="true">
                 <Folders />
@@ -6158,7 +6155,7 @@
             </Folders>
             <Triggers />
           </Folder>
-          <Folder ZoneFilterEnabled="True" Id="436e24fb-3a6d-4f64-8fc5-a99d5d14e755" ZoneFilterRegularExpression="The\ Grand\ Cosmos" Name="80 - The Grand Cosmos" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="436e24fb-3a6d-4f64-8fc5-a99d5d14e755" ZoneFilterRegularExpression="^The\ Grand\ Cosmos$" Name="80 - The Grand Cosmos" Enabled="true">
             <Folders>
               <Folder Id="2cd0c3e7-6ff8-4698-a76d-2e4ff3fc7eb1" Name="Lugus" Enabled="true">
                 <Folders />
@@ -6648,77 +6645,7 @@
             </Folders>
             <Triggers />
           </Folder>
-          <Folder Id="85fe322d-ac2e-476d-b345-fa84dba59828" Name="Trials" Enabled="true">
-            <Folders>
-              <Folder ZoneFilterEnabled="True" Id="907c3b15-252a-417a-9ca5-ab2d6eca0b00" ZoneFilterRegularExpression="^The\ Mothercrystal$" Name="The Mothercrystal (Hydaelyn)" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Heros's Radiance" Id="868eafac-105d-4c42-b327-a28f92d3ffda" RegularExpression="^20\|[^|]*\|[^|]*\|Hydaelyn\|65D7\|Heros's Radiance" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dawn Mantle" Id="91a730ef-48c0-4e1c-9c4b-b48804fff240" RegularExpression="^20\|[^|]*\|[^|]*\|Hydaelyn\|6C0C\|Dawn Mantle\|(?&lt;id&gt;[^|]*)\|&#xA;" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="40012033" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="2" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="40012280" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="3" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="9e634745-6eea-4adc-9fd0-4bbbbeb797f0" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="4001247D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Heros's Sundering" Id="6bdfe3db-b8f3-439f-a292-7ac9d4456ade" RegularExpression="^20\|[^|]*\|[^|]*\|Hydaelyn\|65D5\|Heros's Sundering" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="43d8f059-51ba-42e9-b070-cbbd409c6531" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Magos's Radiance" Id="4fe89dec-4e07-4eb8-a5b2-6d7893a7810a" RegularExpression="^20\|[^|]*\|[^|]*\|Hydaelyn\|65D8\|Magos's Radiance" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Echoes" Id="bfdeb9eb-5da6-4242-8f9c-7feaa4cf00f5" RegularExpression="^20\|[^|]*\|[^|]*\|Hydaelyn\|65B5\|Echoes" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c92f48d4-1e1b-4b8d-b85c-4c3518e74eca" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mousa's Scorn" Id="d1532435-e24a-4b55-bfc5-990d9fc5f55a" RegularExpression="^20\|[^|]*\|[^|]*\|Hydaelyn\|65D6\|Mousa's Scorn" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                </Triggers>
-              </Folder>
-            </Folders>
-            <Triggers />
-          </Folder>
-          <Folder Id="2459e502-aa6f-425e-bafb-8816961b710a" Name="90 - Ktisis Hyperboreia" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="2459e502-aa6f-425e-bafb-8816961b710a" ZoneFilterRegularExpression="^Ktisis\ Hyperboreia$" Name="90 - Ktisis Hyperboreia" Enabled="true">
             <Folders>
               <Folder Id="10b31127-b605-420c-87f4-96e87b4842c1" Name="Ladon Lord" Enabled="true">
                 <Folders />
