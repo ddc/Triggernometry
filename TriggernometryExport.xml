@@ -4756,7 +4756,7 @@
               <Folder ZoneFilterEnabled="True" Id="5c82a532-7743-44df-bb66-007d8b59cd44" ZoneFilterRegularExpression="^Urth's\ Fount$" Name="Urth's Fount [odin]" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="Odin readies Sanngetall" Id="9d27da33-657a-467d-8b46-ffb14d23df7a" RegularExpression="Odin readies Sanngetall" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sanngetall" Id="9d27da33-657a-467d-8b46-ffb14d23df7a" RegularExpression="^20\|[^|]*\|[^|]*\|Odin\|C45\|Sanngetall\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -4764,7 +4764,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Odin readies Einherjar" Id="634bd177-f4fe-4bea-82fb-54cc9d876518" RegularExpression="Odin readies Einherjar" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Einherjar" Id="634bd177-f4fe-4bea-82fb-54cc9d876518" RegularExpression="^20\|[^|]*\|[^|]*\|Odin\|C48\|Einherjar\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -4772,7 +4772,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Odin readies Hall of Stone" Id="ada1e988-0724-46c7-8775-79368dc80292" RegularExpression="Odin readies Hall of Stone" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hall of Stone" Id="ada1e988-0724-46c7-8775-79368dc80292" RegularExpression="^20\|[^|]*\|[^|]*\|Odin\|C4B\|Hall of Stone\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="f3d274d8-84bb-4398-b1cf-4412cc7f4678" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5345,7 +5345,7 @@
               <Folder ZoneFilterEnabled="True" Id="6e67e064-bd40-4009-9ee8-d15ee7716af2" ZoneFilterRegularExpression="^the\ Minstrel's\ Ballad:\ Thordan's\ Reign$" Name="The Minstrel's Ballad: Thordan's Reign" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="King Thordan begins casting The Dragon's Gaze" Id="9e7cc3cc-85cd-45e9-af31-fd569716ea30" RegularExpression="King Thordan begins casting The Dragon's Gaze" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dragon's Gaze" Id="9e7cc3cc-85cd-45e9-af31-fd569716ea30" RegularExpression="^20\|[^|]*\|[^|]*\|King Thordan\|1489\|the Dragon's Gaze\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5353,7 +5353,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="King Thordan begins casting Lightning Storm" Id="be796b34-2eb5-4957-bb57-4e5da17910c3" RegularExpression="King Thordan begins casting Lightning Storm" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Lightning Storm" Id="be796b34-2eb5-4957-bb57-4e5da17910c3" RegularExpression="^20\|[^|]*\|[^|]*\|King Thordan\|1481\|Lightning Storm\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="f3d274d8-84bb-4398-b1cf-4412cc7f4678" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5361,7 +5361,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="King Thordan begins casting The Dragon's Rage" Id="a54831e3-ad60-45e2-977f-074ed88eda81" RegularExpression="King Thordan begins casting The Dragon's Rage" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="The Dragon's Rage" Id="a54831e3-ad60-45e2-977f-074ed88eda81" RegularExpression="^20\|[^|]*\|[^|]*\|King Thordan\|148B\|the Dragon's Rage\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="fd757050-3100-4feb-a900-51b5c02805ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5377,7 +5377,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="readies Holiest of Holy" Id="46a4ab68-3108-4944-a56c-c4e28e1aaf0a" RegularExpression="readies Holiest of Holy" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Holiest of Holy" Id="46a4ab68-3108-4944-a56c-c4e28e1aaf0a" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|1495\|Holiest of Holy\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5385,7 +5385,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="readies Holy Bladedance" Id="f3e694de-f417-477c-871a-456e96d7c8cf" RegularExpression="readies Holy Bladedance" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Holy Bladedance" Id="f3e694de-f417-477c-871a-456e96d7c8cf" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|1496\|Holy Bladedance\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5393,7 +5393,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="2aae:Ser Janlenoux gains the effect of Sword of the Heavens" Id="a97c1033-fa5c-4ecc-a82f-313a15ed7f7a" RegularExpression="2aae:Ser Janlenoux gains the effect of Sword of the Heavens" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ser Janlenoux (Sword of the Heavens)" Id="a97c1033-fa5c-4ecc-a82f-313a15ed7f7a" RegularExpression="^26\|[^|]*\|3B0\|Sword of the Heavens\|[^|]*\|[^|]*\|\|[^|]*\|Ser Janlenoux\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Attack Ser Janlenoux" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5407,7 +5407,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="2aae:Ser Adelphel gains the effect of Sword of the Heavens" Id="5954c0da-7a48-4a57-baf8-1c44975a3605" RegularExpression="2aae:Ser Adelphel gains the effect of Sword of the Heavens" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ser Adelphel (Sword of the Heavens)" Id="5954c0da-7a48-4a57-baf8-1c44975a3605" RegularExpression="^26\|[^|]*\|3B0\|Sword of the Heavens\|[^|]*\|[^|]*\|\|[^|]*\|Adelphel\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Attack Ser Adelphel" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5423,7 +5423,7 @@
                   </Trigger>
                   <Trigger Enabled="true" Name="readies Spiral Pierce" Id="f5799a42-721d-4b9d-be40-cd0c8323f226" RegularExpression="readies Spiral Pierce" PrevActions="Interrupt">
                     <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c9fbdc2e-1007-4e83-a9d8-d9bc3275e76f" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c9fbdc2e-1007-4e83-a9d8-d9bc3275e76f" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="5000" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
