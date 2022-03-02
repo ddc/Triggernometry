@@ -144,7 +144,7 @@
           <Folder Id="aa5449bd-16d9-4168-8dec-7cf771cc061a" Name="Dragons" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name=" Dragon's Voice" Id="9df5212d-ceb5-4a6d-bbb4-dc052a42821f" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|D10\|the Dragon's Voice">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name=" Dragon's Voice" Id="9df5212d-ceb5-4a6d-bbb4-dc052a42821f" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|D10\|the Dragon's Voice" PrevActions="Interrupt">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -152,7 +152,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ram's Voice" Id="5f3880dc-12e6-4dbb-bff7-4ac364a08d44" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|D0F\|the Ram's Voice">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ram's Voice" Id="5f3880dc-12e6-4dbb-bff7-4ac364a08d44" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|D0F\|the Ram's Voice" PrevActions="Interrupt">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -348,7 +348,7 @@
           </Folder>
         </Folders>
         <Triggers>
-          <Trigger Enabled="true" Name="Party Leader" Id="ca33da9b-b93e-4416-92b2-96d3c0f22717" RegularExpression="(You are promoted to party leader.*|has promoted you to party leader.*)">
+          <Trigger Enabled="true" Name="Party Leader" Id="ca33da9b-b93e-4416-92b2-96d3c0f22717" RegularExpression="(You are promoted to party leader.*|has promoted you to party leader.*)" PrevActions="Interrupt">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="You are now the party leader" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -376,7 +376,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="false" Name="Venture Complete" Id="f822da24-3e17-47ec-b511-8309b13ef92c" RegularExpression="(?&lt;retainer&gt;[a-zA-Z-' ]{1,}) has completed a venture">
+          <Trigger Enabled="false" Name="Venture Complete" Id="f822da24-3e17-47ec-b511-8309b13ef92c" RegularExpression="(?&lt;retainer&gt;[a-zA-Z-' ]{1,}) has completed a venture" PrevActions="Interrupt">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="${retainer} has completed a venture!" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -390,7 +390,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Challenge Log Complete" Id="dedad377-8757-4486-9d91-223e3abf1fe7" RegularExpression="^00\|[^|]*\|0839\|\|Challenge log entry (?&lt;challenge&gt;[^|]*) [^|]{9} complete!\|">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Challenge Log Complete" Id="dedad377-8757-4486-9d91-223e3abf1fe7" RegularExpression="^00\|[^|]*\|0039\|\|Challenge log entry (?&lt;challenge&gt;[^|]*) complete" PrevActions="Interrupt">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Challenge log ${challenge} complete" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -404,7 +404,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="Wake Up" Id="aa9e2d00-f694-4ef8-914d-c232a3655d7f" RegularExpression="00:0039:(?&lt;time&gt;[0-9]) minutes have elapsed since your last activity">
+          <Trigger Enabled="true" Name="Wake Up" Id="aa9e2d00-f694-4ef8-914d-c232a3655d7f" RegularExpression="00:0039:(?&lt;time&gt;[0-9]) minutes have elapsed since your last activity" PrevActions="Interrupt">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Wake up. Wake the fuck up" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -421,7 +421,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Name="Bonus" Id="3c91f64a-ca4f-49f3-86e5-4e2424b10b3b" RegularExpression="^00\|[^|]*\|[^|]*\|\|[^|]*will be awarded upon completion.\|">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Bonus" Id="3c91f64a-ca4f-49f3-86e5-4e2424b10b3b" RegularExpression="^00\|[^|]*\|0839\|\|One or more party members have yet to complete this duty">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Bonus!" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -463,7 +463,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="Objective accomplished" Id="fb1b3a75-89b5-4174-a56b-b444a2e66858" RegularExpression="Objective accomplished. If applicable, please make sure to submit items within the time limit">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Objective accomplished" Id="fb1b3a75-89b5-4174-a56b-b444a2e66858" RegularExpression="^00\|[^|]*\|0839\|\|Objective accomplished. If applicable, please make sure to submit items within the time limit">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Objective accomplished. Delivery your items now." TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -491,7 +491,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shirk" Id="0a66222b-6204-4896-a7ac-7f5e634bcb94" RegularExpression="^21\|[^|]*\|[^|]*\|(?&lt;player1&gt;[^|]*)\|1D71\|Shirk\|[^|]*\|(?&lt;player2&gt;[^|]*)\|">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shirk" Id="0a66222b-6204-4896-a7ac-7f5e634bcb94" RegularExpression="^21\|[^|]*\|[^|]*\|(?&lt;player1&gt;[^|]*)\|1D71\|Shirk\|[^|]*\|(?&lt;player2&gt;[^|]*)\|" PrevActions="Interrupt">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="${player1} shirk, on ${player2}" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -1031,7 +1031,7 @@
                       <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="jta_refreshDots" TextAuraExpression="Refresh Dots" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yfive}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraOTickExpression="75+(cos(${_sincems}/50)*25)" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
                         <Condition Enabled="false" Grouping="And" />
                       </Action>
-                      <Action OrderNumber="4" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="jta_refreshDotsMid" TextAuraExpression="Refresh Dots" TextAuraXIniExpression="${var:Xmid}" TextAuraYIniExpression="${var:Yten}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraOTickExpression="75+(cos(${_sincems}/50)*25)" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" Enabled="False" ActionType="TextAura">
+                      <Action OrderNumber="4" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="jta_refreshDotsMid" TextAuraExpression="Refresh Dots" TextAuraXIniExpression="${var:Xmid}" TextAuraYIniExpression="${var:Yten}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraOTickExpression="75+(cos(${_sincems}/50)*25)" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
                         <Condition Enabled="false" Grouping="And" />
                       </Action>
                       <Action OrderNumber="5" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="36" TextAuraName="jta_refreshDots*" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="120000">
@@ -1071,7 +1071,7 @@
                       <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="jta_refreshDots" TextAuraExpression="Refresh Dots" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yfive}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraOTickExpression="75+(cos(${_sincems}/50)*25)" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="And" />
                       </Action>
-                      <Action OrderNumber="4" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="jta_refreshDotsMid" TextAuraExpression="Refresh Dots" TextAuraXIniExpression="${var:Xmid}" TextAuraYIniExpression="${var:Yten}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraOTickExpression="75+(cos(${_sincems}/50)*25)" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" Enabled="False" ActionType="TextAura" RefireInterrupt="True">
+                      <Action OrderNumber="4" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="jta_refreshDotsMid" TextAuraExpression="Refresh Dots" TextAuraXIniExpression="${var:Xmid}" TextAuraYIniExpression="${var:Yten}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraOTickExpression="75+(cos(${_sincems}/50)*25)" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="And" />
                       </Action>
                       <Action OrderNumber="5" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="36" TextAuraName="jta_refreshDots*" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="120000" RefireInterrupt="True">
@@ -4727,7 +4727,7 @@
                 </Folders>
                 <Triggers />
               </Folder>
-              <Folder Id="c655fe93-8a73-44b1-a77e-bdb969f0c084" ZoneFilterRegularExpression="The\ World\ Of\ Darkness" Name="50 - The World Of Darkness" Enabled="true">
+              <Folder ZoneFilterEnabled="True" Id="c655fe93-8a73-44b1-a77e-bdb969f0c084" ZoneFilterRegularExpression="^the\ World\ of\ Darkness$" Name="50 - The World Of Darkness" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Heat Wave" Id="3b4054d3-0dae-4846-9f4e-1a6d3310c9ca" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|CDE\|Heat Wave" PrevActions="Interrupt">
@@ -4785,7 +4785,7 @@
               <Folder ZoneFilterEnabled="True" Id="86d98097-d321-464d-bd40-7be3b32ee098" ZoneFilterRegularExpression="^the\ Minstrel's\ Ballad:\ Ultima's\ Bane$" Name="The Minstrel's Ballad: Ultima's Bane" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="The Ultima Weapon readies Tank Purge" Id="40c1c9a8-e5db-43f3-ad07-72ed917b1ce7" RegularExpression="The Ultima Weapon readies Tank Purge" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tank Purge" Id="40c1c9a8-e5db-43f3-ad07-72ed917b1ce7" RegularExpression="^20\|[^|]*\|[^|]*\|The Ultima Weapon\|5EA\|Tank Purge\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -4793,9 +4793,9 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="The Ultima Weapon readies Aetheric Boom" Id="2134549f-f8ad-41e7-a14f-8318d0f9ae97" RegularExpression="The Ultima Weapon readies Aetheric Boom" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Aetheric Boom" Id="2134549f-f8ad-41e7-a14f-8318d0f9ae97" RegularExpression="^20\|[^|]*\|[^|]*\|The Ultima Weapon\|5E7\|Aetheric Boom\|" PrevActions="Interrupt">
                     <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="67f87de1-978c-4d7b-b38f-54665341203f" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="67f87de1-978c-4d7b-b38f-54665341203f" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="3000" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -5514,7 +5514,7 @@
               <Folder ZoneFilterEnabled="True" Id="f791f067-14d4-4ad3-980c-a4f1e78c6564" ZoneFilterRegularExpression="^the\ Limitless\ Blue\ \(Extreme\)$" Name="The Limitless Blue (Extreme)" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="Will Of The Wind" Id="9f7530a8-0113-42a1-b39b-b166e6d610bf" RegularExpression="^\[.{25}:(?&lt;player&gt;[a-zA-Z-' ]{3,21}) gains the effect of Will Of The Wind" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Will Of The Wind" Id="9f7530a8-0113-42a1-b39b-b166e6d610bf" RegularExpression="^26\|[^|]*\|2CD\|Will of the Wind\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="b1040c94-088b-49b3-a2d9-722b4b82a8ce" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5524,7 +5524,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="true" Name="Will Of The Water" Id="ff6a6204-f35d-443a-bde5-675646dbe780" RegularExpression="^\[.{25}:(?&lt;player&gt;[a-zA-Z-' ]{3,21}) gains the effect of Will Of The Water" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Will Of The Water" Id="ff6a6204-f35d-443a-bde5-675646dbe780" RegularExpression="^26\|[^|]*\|2CE\|Will of the Water\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="a2761c8c-f1e6-4574-a639-0334e3865fc8" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
