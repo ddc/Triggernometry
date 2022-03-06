@@ -78,17 +78,27 @@
                       <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" UseTTSTextExpression="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="UseTTS" ExecutionDelayExpression="2000" RefireInterrupt="True">
+                  <Action OrderNumber="5" UseTTSTextExpression="5" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="UseTTS" RefireInterrupt="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="6" UseTTSTextExpression="2" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="UseTTS" ExecutionDelayExpression="1000" RefireInterrupt="True">
+                  <Action OrderNumber="6" UseTTSTextExpression="4" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="UseTTS" ExecutionDelayExpression="1000" RefireInterrupt="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="7" UseTTSTextExpression="1" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="UseTTS" ExecutionDelayExpression="1000" RefireInterrupt="True">
+                  <Action OrderNumber="7" UseTTSTextExpression="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="UseTTS" ExecutionDelayExpression="1000" RefireInterrupt="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="8" UseTTSTextExpression="2" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="UseTTS" ExecutionDelayExpression="1000" RefireInterrupt="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="9" UseTTSTextExpression="1" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="UseTTS" ExecutionDelayExpression="1000" RefireInterrupt="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
@@ -395,7 +405,7 @@
               <Action OrderNumber="1" UseTTSTextExpression="Challenge log ${challenge} complete" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_challengeLog" TextAuraExpression="Challenge log ${challenge} complete" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Ysix}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_challengeLog" TextAuraExpression="${challenge}" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Ysix}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_challengeLog" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
@@ -421,7 +431,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Bonus" Id="3c91f64a-ca4f-49f3-86e5-4e2424b10b3b" RegularExpression="^00\|[^|]*\|0839\|\|One or more party members have yet to complete this duty">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Bonus" Id="3c91f64a-ca4f-49f3-86e5-4e2424b10b3b" RegularExpression="^00\|[^|]*\|0839\|\|One or more party members are new to this duty">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Bonus!" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
