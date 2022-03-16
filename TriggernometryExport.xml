@@ -6552,9 +6552,17 @@
                   <Folder Id="294b6b7d-149c-45ca-b396-22462e6e5bcf" ZoneFilterRegularExpression="^The\ Tempest$" Name="Baal" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sewage Wave" Id="dfbe8616-4136-4db6-b2ee-cef4e88d4709" RegularExpression="^20\|[^|]*\|[^|]*\|Baal\|440F\|Sewage Wave\|" PrevActions="Interrupt">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="440F|Sewage Wave" Id="dfbe8616-4136-4db6-b2ee-cef4e88d4709" RegularExpression="^20\|[^|]*\|[^|]*\|Baal\|440F\|Sewage Wave\|" PrevActions="Interrupt">
                         <Actions>
-                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ae2f6de-0e66-4795-8de3-e54ec5a4f4c7" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="440E|Sewage Wave" Id="c076e393-53d6-4295-a795-a9f15562404a" RegularExpression="^20\|[^|]*\|[^|]*\|Baal\|440E\|Sewage Wave\|" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="233f59c8-94ea-4970-b811-479e4ae29bbc" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
@@ -6666,6 +6674,19 @@
                   </Folder>
                 </Folders>
                 <Triggers />
+              </Folder>
+              <Folder ZoneFilterEnabled="True" Id="ef805c68-d2a4-40d4-b0e7-7a4c4b456ec6" ZoneFilterRegularExpression="^Lakeland$" Name="Lakeland" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Odious Miasma" Id="4e32efb7-c5c1-48f4-85bc-e5281a4904ea" RegularExpression="^20\|[^|]*\|[^|]*\|Nariphon\|424A\|Odious Miasma" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                </Triggers>
               </Folder>
             </Folders>
             <Triggers />
