@@ -473,7 +473,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Objective accomplished" Id="fb1b3a75-89b5-4174-a56b-b444a2e66858" RegularExpression="^00\|[^|]*\|0839\|\|Objective accomplished. If applicable, please make sure to submit items within the time limit">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Objective accomplished" Id="fb1b3a75-89b5-4174-a56b-b444a2e66858" RegularExpression="^00\|[^|]*\|0839\|\|.*make sure to submit items within the time limit.\|" PrevActions="Interrupt">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Objective accomplished. Delivery your items now." TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -515,7 +515,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="And" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Look Away" Id="ee211c13-89b2-4138-a648-33c7a8a383a3" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;spellid&gt;[^|]*)\|(?&lt;spellname&gt;[^|]*)" PrevActions="Interrupt" Description="Mortal Gaze&#xD;&#xA;&#xA;Cursed Gaze&#xA;&#xD;&#xA;Dread Gaze&#xA;&#xD;&#xA;Empty Gaze&#xA;&#xD;&#xA;Stone Gaze&#xD;&#xA;&#xA;Petro Eyes&#xD;&#xA;&#xA;Neuro Squama&#xD;&#xA;=============&#xD;&#xA;Illumoth|6E3D|Neuro Squama&#xD;&#xA;">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Look Away" Id="ee211c13-89b2-4138-a648-33c7a8a383a3" RegularExpression="^20\|[^|]*\|[^|]*\|(?&lt;npc&gt;[^|]*)\|(?&lt;spellid&gt;[^|]*)\|(?&lt;spellname&gt;[^|]*)" PrevActions="Interrupt" Description="Mortal Gaze&#xD;&#xA;&#xA;Cursed Gaze&#xA;&#xD;&#xA;Dread Gaze&#xA;&#xD;&#xA;Empty Gaze&#xA;&#xD;&#xA;Stone Gaze&#xD;&#xA;&#xA;Petro Eyes&#xD;&#xA;&#xA;Neuro Squama&#xD;&#xA;=============&#xD;&#xA;Illumoth|6E3D|Neuro Squama&#xD;&#xA;">
             <Actions>
               <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                 <Condition Enabled="false" Grouping="Or" />
@@ -534,6 +534,7 @@
                 <ConditionSingle Enabled="true" ExpressionL="${spellname}" ExpressionTypeL="String" ExpressionR="Stone Gaze" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
               </ConditionGroup>
               <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="6E3D" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${npc}" ExpressionTypeL="String" ExpressionR="Angra Mainyu" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
             </Condition>
           </Trigger>
         </Triggers>
@@ -854,7 +855,7 @@
           <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="16777280" Id="405db036-99bc-4901-bd16-00fb8706e45f" Name="BLM" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Refresh Dots" Id="ad13a614-97d2-4dd5-978b-29194f28d7c8" RegularExpression="^26\|[^|]*\|(?&lt;spellid&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" PrevActions="Interrupt" RefirePeriodExpression="20000" Description="A3|Thunder III&#xA;&#xD;&#xA;4BA|Thunder IV">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Refresh Dots" Id="ad13a614-97d2-4dd5-978b-29194f28d7c8" RegularExpression="^26\|[^|]*\|(?&lt;spellid&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" PrevActions="Interrupt" RefirePeriodExpression="20000" Description="A1|Thunder I&#xD;&#xA;A2|Thunder II&#xD;&#xA;A3|Thunder III&#xA;&#xD;&#xA;4BA|Thunder IV">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="bc0ac05d-026e-4b8c-af33-b78c1d2d81dd" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
@@ -865,6 +866,8 @@
                   <ConditionGroup Enabled="true" Grouping="Or">
                     <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="A3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="4BA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="A2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="A1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   </ConditionGroup>
                 </Condition>
               </Trigger>
@@ -2948,7 +2951,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="And" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="Ice, then Fire" Id="7dcc903d-cc1d-4560-8052-b61de7a48141" RegularExpression="" PrevActions="Interrupt">
             <Actions>
@@ -2963,7 +2965,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="And" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="Go to aoe edge" Id="9cbefbc9-81e0-47b5-9418-8880b2430ee7" RegularExpression="" PrevActions="Interrupt">
             <Actions>
@@ -2978,7 +2979,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -6140,7 +6140,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                     </Triggers>
                   </Folder>
@@ -6827,7 +6826,7 @@
                   </Folder>
                 </Folders>
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Miasmata" Id="5b7b3d94-ce76-40a3-b03c-52b2d09a026f" RegularExpression="^20\|[^|]*\|[^|]*\|Caustic Grebuloff\|653C\|Miasmata\|" PrevActions="Interrupt">
+                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Miasmata" Id="5b7b3d94-ce76-40a3-b03c-52b2d09a026f" RegularExpression="^20\|[^|]*\|[^|]*\|Caustic Grebuloff\|653C\|Miasmata\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -7069,7 +7068,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Carapace &gt; Fore Arms 2.0" Id="78bcceae-229f-42c6-a4c2-2028ddf03013" RegularExpression="^20\|[^|]*\|[^|]*\|Chi\|(?&lt;spellid&gt;[^|]*)\|Carapace &gt; Fore Arms 2.0\|" PrevActions="Interrupt">
                         <Actions>
@@ -7085,7 +7083,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Fore Arms &gt; Rear Guns 2.0" Id="2594e32b-297a-4861-9aa5-bbed74cc94cc" RegularExpression="^20\|[^|]*\|[^|]*\|Chi\|6568\|Fore Arms &gt; Rear Guns 2.0\|" PrevActions="Interrupt">
                         <Actions>
@@ -7094,7 +7091,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                     </Triggers>
                   </Folder>
@@ -7113,7 +7109,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Loyal Flame" Id="b26564fc-1358-4905-90fe-a79d967da807" RegularExpression="^20\|[^|]*\|[^|]*\|Daivadipa\|(?&lt;spellid&gt;[^|]*)\|Loyal Flame" PrevActions="Interrupt">
                         <Actions>
@@ -7129,7 +7124,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cosmic Weave" Id="9a47cc18-4601-4291-8f6f-e3794f08ab93" RegularExpression="^20\|[^|]*\|[^|]*\|Daivadipa\|6791\|Cosmic Weave" PrevActions="Interrupt">
                         <Actions>
@@ -7138,7 +7132,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Errant Akasa" Id="f9161bc0-a50f-44f0-9d80-4a3de5985865" RegularExpression="^20\|[^|]*\|[^|]*\|Daivadipa\|6792\|Errant Akasa" PrevActions="Interrupt">
                         <Actions>
@@ -7147,7 +7140,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Infernal Redemption" Id="3e9bdc89-e13e-4e28-acf1-95cefef6483e" RegularExpression="^20\|[^|]*\|[^|]*\|Daivadipa\|6795\|Infernal Redemption" PrevActions="Interrupt">
                         <Actions>
@@ -7156,7 +7148,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Leftward Trisula" Id="6ecd531e-f3ce-4db3-9871-96954a937ed6" RegularExpression="^20\|[^|]*\|[^|]*\|Daivadipa\|678C\|Leftward Trisula" PrevActions="Interrupt">
                         <Actions>
@@ -7165,7 +7156,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Drumbeat" Id="5d50ea98-2a54-4857-9c60-390609e69ff9" RegularExpression="^20\|[^|]*\|[^|]*\|Daivadipa\|678E\|Drumbeat" PrevActions="Interrupt">
                         <Actions>
@@ -7174,7 +7164,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Karmic Flames" Id="b654adad-11be-4684-b209-cc580422a9cb" RegularExpression="^20\|[^|]*\|[^|]*\|Daivadipa\|6793\|Karmic Flames" PrevActions="Interrupt">
                         <Actions>
@@ -7183,7 +7172,6 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="And" />
-                        <Conditions />
                       </Trigger>
                     </Triggers>
                   </Folder>
