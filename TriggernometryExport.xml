@@ -154,7 +154,7 @@
           <Folder Id="aa5449bd-16d9-4168-8dec-7cf771cc061a" Name="Dragons" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name=" Dragon's Voice" Id="9df5212d-ceb5-4a6d-bbb4-dc052a42821f" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|D10\|the Dragon's Voice" PrevActions="Interrupt">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dragon's Voice" Id="9df5212d-ceb5-4a6d-bbb4-dc052a42821f" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|D10\|the Dragon's Voice">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -162,7 +162,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ram's Voice" Id="5f3880dc-12e6-4dbb-bff7-4ac364a08d44" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|D0F\|the Ram's Voice" PrevActions="Interrupt">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ram's Voice" Id="5f3880dc-12e6-4dbb-bff7-4ac364a08d44" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|D0F\|the Ram's Voice">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -177,13 +177,16 @@
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Emotes - 1" Id="62d25000-de2c-487e-b3f0-a594f5980f1f" RegularExpression="^00\|[^|]*\|001D\|(?&lt;player&gt;[^|]*)\|[^ ]* [^ ]* (?&lt;msg&gt;[^|]*) you[.|!]" PrevActions="Interrupt">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="${player} ${msg} you" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                  <Action OrderNumber="1" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="7.8" TextAuraName="ta_emotes*" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="25.8" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_emotes1" TextAuraExpression="${player} ${msg} you" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Ysix}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                  <Action OrderNumber="2" UseTTSTextExpression="${player} ${msg} you" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="300">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="22.2" TextAuraName="ta_emotes1" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="10000">
+                  <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="25.8" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_emotes1" TextAuraExpression="${player} ${msg} you" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Ysix}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" TextAuraOp="DeactivateAura" TextAuraFontSize="22.2" TextAuraName="ta_emotes1" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="10000">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -193,13 +196,16 @@
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Emotes - 2" Id="ec8de532-06f2-4e31-9422-a3f23bad5081" RegularExpression="^00\|[^|]*\|001D\|(?&lt;player&gt;[^|]*)\|[^ ]* [^ ]* (?&lt;msg1&gt;[^|]* you) (?&lt;msg2&gt;[^|]*)" PrevActions="Interrupt">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="${player} ${msg1} ${msg2} " TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                  <Action OrderNumber="1" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="7.8" TextAuraName="ta_emotes*" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="25.8" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_emotes2" TextAuraExpression="${player} ${msg1} ${msg2} " TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Ysix}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                  <Action OrderNumber="2" UseTTSTextExpression="${player} ${msg1} ${msg2} " TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="300">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="22.2" TextAuraName="ta_emotes2" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="10000">
+                  <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="25.8" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_emotes2" TextAuraExpression="${player} ${msg1} ${msg2} " TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Ysix}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" TextAuraOp="DeactivateAura" TextAuraFontSize="22.2" TextAuraName="ta_emotes2" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="10000">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -414,7 +420,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="Wake Up" Id="aa9e2d00-f694-4ef8-914d-c232a3655d7f" RegularExpression="00:0039:(?&lt;time&gt;[0-9]) minutes have elapsed since your last activity" PrevActions="Interrupt">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wake Up" Id="aa9e2d00-f694-4ef8-914d-c232a3655d7f" RegularExpression="^00\|[^|]*\|0039\|\|(?&lt;elTime&gt;[^|]*) minutes have elapsed since your last activity">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Wake up. Wake the fuck up" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -427,8 +433,8 @@
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${elTime}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${elTime}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Bonus" Id="3c91f64a-ca4f-49f3-86e5-4e2424b10b3b" RegularExpression="^00\|[^|]*\|0839\|\|One or more party members are new to this duty">
@@ -473,7 +479,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Objective accomplished" Id="fb1b3a75-89b5-4174-a56b-b444a2e66858" RegularExpression="^00\|[^|]*\|0839\|\|.*make sure to submit items within the time limit.\|" PrevActions="Interrupt">
+          <Trigger Enabled="true" Name="Objective accomplished" Id="fb1b3a75-89b5-4174-a56b-b444a2e66858" RegularExpression="Objective accomplished. If applicable, please make sure to submit items within the time limit." PrevActions="Interrupt">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Objective accomplished. Delivery your items now." TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -532,6 +538,7 @@
                 <ConditionSingle Enabled="true" ExpressionL="${spellname}" ExpressionTypeL="String" ExpressionR="Petrifaction" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 <ConditionSingle Enabled="true" ExpressionL="${spellname}" ExpressionTypeL="String" ExpressionR="Petro Eyes" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 <ConditionSingle Enabled="true" ExpressionL="${spellname}" ExpressionTypeL="String" ExpressionR="Stone Gaze" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                <ConditionSingle Enabled="true" ExpressionL="${spellname}" ExpressionTypeL="String" ExpressionR="the Dragon's Gaze" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
               </ConditionGroup>
               <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="6E3D" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
               <ConditionSingle Enabled="true" ExpressionL="${npc}" ExpressionTypeL="String" ExpressionR="Angra Mainyu" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
@@ -1110,6 +1117,26 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
+                  <Trigger Enabled="true" Name="Refresh dots(15s)" Id="0190e69f-f733-40d8-af58-a64ed9731e5f" RegularExpression="" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="36" TextAuraName="jta_refreshDots*" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" UseTTSTextExpression="Refresh Dots" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS" ExecutionDelayExpression="15000">
+                        <Condition Enabled="false" Grouping="And" />
+                      </Action>
+                      <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="jta_refreshDots" TextAuraExpression="Refresh Dots" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yfive}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraOTickExpression="75+(cos(${_sincems}/50)*25)" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                        <Condition Enabled="false" Grouping="And" />
+                      </Action>
+                      <Action OrderNumber="4" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="jta_refreshDotsMid" TextAuraExpression="Refresh Dots" TextAuraXIniExpression="${var:Xmid}" TextAuraYIniExpression="${var:Yten}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraOTickExpression="75+(cos(${_sincems}/50)*25)" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                        <Condition Enabled="false" Grouping="And" />
+                      </Action>
+                      <Action OrderNumber="5" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="36" TextAuraName="jta_refreshDots*" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="60000">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
                 </Triggers>
               </Folder>
               <Folder Id="6c14777f-9faf-41b3-9ab5-b3023c2e7574" Name="Shields" Enabled="true">
@@ -1236,6 +1263,24 @@
             </Folders>
             <Triggers />
           </Folder>
+          <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="524290" Id="b5af1642-2743-42fd-9721-ed0241a1204a" Name="MNK" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Refresh Dots" Id="0bfd2c47-dd8e-424e-9fc1-6c9194736682" RegularExpression="^26\|[^|]*\|(?&lt;spellid&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" PrevActions="Interrupt">
+                <Actions>
+                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="0190e69f-f733-40d8-af58-a64ed9731e5f" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="F6" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                  </ConditionGroup>
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
         </Folders>
         <Triggers />
       </Folder>
@@ -1256,7 +1301,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="And" />
           </Trigger>
-          <Trigger Enabled="false" Source="FFXIVNetwork" Name="Template" Id="ff5a0eff-53bb-4f97-ae17-93a764680c03" RegularExpression="regex" PrevActions="Interrupt">
+          <Trigger Enabled="false" Source="FFXIVNetwork" Name="Template" Id="ff5a0eff-53bb-4f97-ae17-93a764680c03" RegularExpression="regex">
             <Actions>
               <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
@@ -1577,15 +1622,15 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="Help your friend" Id="448d6a97-f737-4a8e-9bd1-d2271a984612" RegularExpression="" PrevActions="Interrupt">
+          <Trigger Enabled="true" Name="Free your friend" Id="448d6a97-f737-4a8e-9bd1-d2271a984612" RegularExpression="" PrevActions="Interrupt">
             <Actions>
-              <Action OrderNumber="1" UseTTSTextExpression="Help your friend" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+              <Action OrderNumber="1" UseTTSTextExpression="Free your friend" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_helpFriend" TextAuraExpression="Help your friend" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_freeFriend" TextAuraExpression="Free your friend" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_helpFriend" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
+              <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_freeFriend" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -2979,6 +3024,76 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="Beetween Tentacles" Id="059f64a5-c20c-47d9-a6e5-95590f7d4d4e" RegularExpression="" PrevActions="Interrupt">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Beetween Tentacles" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_beetweenTentacles" TextAuraExpression="Beetween Tentacles" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_beetweenTentacles" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="And" />
+          </Trigger>
+          <Trigger Enabled="true" Name="Go Down the Hole" Id="dda7a474-3ab3-43f4-a7f9-4480f1a8008f" RegularExpression="" PrevActions="Interrupt">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Go Down the Hole" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_downHole" TextAuraExpression="Go Down the Hole" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_downHole" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="And" />
+          </Trigger>
+          <Trigger Enabled="true" Name="Click on Orb" Id="b8dd89d4-8ef8-4f75-822e-838e8405d2a4" RegularExpression="" PrevActions="Interrupt">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Click on Orb" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_clickOrb" TextAuraExpression="Click on Orb" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_clickOrb" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="And" />
+          </Trigger>
+          <Trigger Enabled="true" Name="DPS inside the rift" Id="672f594f-f86a-4feb-86b5-1dc77bee9511" RegularExpression="" PrevActions="Interrupt">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="DPS inside the rift" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_dpsInsideRift" TextAuraExpression="DPS inside the rift" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_dpsInsideRift" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="Stack, then get out" Id="0aec41b3-fb42-4831-9170-f037daa7b8f2" RegularExpression="" PrevActions="Interrupt">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Stack, then get out" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_stackGetOut" TextAuraExpression="Stack, then get out" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_stackGetOut" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="And" />
           </Trigger>
         </Triggers>
       </Folder>
@@ -4576,83 +4691,100 @@
       <Folder Id="7029c227-5f7c-4101-a9b0-3b0145c4267c" Name="1 - A Realm Reborn" Enabled="true">
         <Folders>
           <Folder ZoneFilterEnabled="True" Id="316d84fb-a761-4f21-bdcb-ff1e385dee49" ZoneFilterRegularExpression="^Halatali\ \(Hard\)$" Name="50 - Halatali (Hard)" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="Mumuepo The Beholden starts using Standstill on Mumuepo The Beholden" Id="506aed63-0183-4ea9-823b-f82b7144d230" RegularExpression="Mumuepo The Beholden starts using Standstill on Mumuepo The Beholden">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="4d898c40-d3b0-433e-9ede-3841f391e005" TriggerForce="regexp" ActionType="Trigger">
+            <Folders>
+              <Folder Id="72d13c30-5283-4fa9-b661-75d316daa4a1" Name="Catoblepas" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Demon Eye" Id="1626ef94-f74f-4d87-b3dc-f3445fe71a4d" RegularExpression="^20\|[^|]*\|[^|]*\|Catoblepas\|833\|Demon Eye\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="5a043514-b3ed-49a5-b163-81e5f7f56a20" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="Catoblepas starts using Demon Eye on Catoblepas" Id="1626ef94-f74f-4d87-b3dc-f3445fe71a4d" RegularExpression="Catoblepas starts using Demon Eye on Catoblepas">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="5a043514-b3ed-49a5-b163-81e5f7f56a20" TriggerForce="regexp" ActionType="Trigger">
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="2a9d0b28-07be-4f5b-8b4e-48d86bc3e915" Name="Mumuepo" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Standstill" Id="506aed63-0183-4ea9-823b-f82b7144d230" RegularExpression="^20\|[^|]*\|[^|]*\|Mumuepo the Beholden\|84F\|Standstill\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="4d898c40-d3b0-433e-9ede-3841f391e005" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="Pyracmon starts using 1000-Tonze Swing on Pyracmon" Id="917623b5-d5e2-4aec-a0ca-e6ddb8f53083" RegularExpression="Pyracmon starts using 1000-Tonze Swing on Pyracmon">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="513055e3-01af-47f5-922c-a18b250eee33" TriggerForce="regexp" ActionType="Trigger">
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="1b704b76-9d4f-4b68-acc1-26259775ef91" Name="Pyracmon" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="1000-Tonze Swing" Id="917623b5-d5e2-4aec-a0ca-e6ddb8f53083" RegularExpression="^20\|[^|]*\|[^|]*\|Pyracmon\|81B\|1000-tonze Swing\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="513055e3-01af-47f5-922c-a18b250eee33" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="Pyracmon starts using Eye Of The Beholder on Pyracmon" Id="42eea5fa-ef82-4ba3-8595-108c8d00d7bd" RegularExpression="Pyracmon starts using Eye Of The Beholder on Pyracmon">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="100-Tonze Swing" Id="7bbe22c7-f94f-44be-91db-58e0f218d9cc" RegularExpression="^20\|[^|]*\|[^|]*\|Pyracmon\|820\|100-tonze Swing\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="Pyracmon starts using Piercing Glower on Pyracmon" Id="b64578da-2df4-417c-8f00-34363b8fcb61" RegularExpression="Pyracmon starts using Piercing Glower on Pyracmon">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="100-Tonze Swipe" Id="0878a17c-6c12-45c2-a8b3-9fa59c41abc8" RegularExpression="^20\|[^|]*\|[^|]*\|Pyracmon\|81F\|100-tonze Swipe\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="Pyracmon starts using 100-Tonze Swipe on Pyracmon" Id="0878a17c-6c12-45c2-a8b3-9fa59c41abc8" RegularExpression="Pyracmon starts using 100-Tonze Swipe on Pyracmon">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Eye Of The Beholder" Id="42eea5fa-ef82-4ba3-8595-108c8d00d7bd" RegularExpression="^20\|[^|]*\|[^|]*\|Pyracmon\|821\|Eye of the Beholder\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="Pyracmon starts using 100-Tonze Swing on Pyracmon" Id="7bbe22c7-f94f-44be-91db-58e0f218d9cc" RegularExpression="Pyracmon starts using 100-Tonze Swing on Pyracmon">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Piercing Glower" Id="b64578da-2df4-417c-8f00-34363b8fcb61" RegularExpression="^20\|[^|]*\|[^|]*\|Pyracmon\|81D\|Piercing Glower\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-            </Triggers>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers />
           </Folder>
           <Folder ZoneFilterEnabled="True" Id="050ee050-8971-4bf2-bbd4-0adba1a2813a" ZoneFilterRegularExpression="^the\ Sunken\ Temple\ of\ Qarn$" Name="35 - The Sunken Temple Of Qarn" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="You suffer the effect of Doom" Id="59a3b29b-0ba2-48ed-aa3e-6664952aeadc" RegularExpression="You suffer the effect of Doom">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Doom" Id="59a3b29b-0ba2-48ed-aa3e-6664952aeadc" RegularExpression="^26\|[^|]*\|D2\|Doom\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="392864a6-07d7-4e3e-9875-6eaf28406c37" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="false" Grouping="Or" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
               </Trigger>
             </Triggers>
           </Folder>
           <Folder ZoneFilterEnabled="True" Id="2f96a733-0773-4c19-9b1f-7d4e713728fc" ZoneFilterRegularExpression="^the\ Sunken\ Temple\ of\ Qarn\ \(Hard\)$" Name="50 - The Sunken Temple Of Qarn (Hard)" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="24,998 needles... 24,999 needles... 25,000 needles" Id="10fe0e8e-89f9-450c-a48e-1995d5c90daf" RegularExpression="24,998 needles... 24,999 needles... 25,000 needles">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="kill Sabotender Guardia" Id="10fe0e8e-89f9-450c-a48e-1995d5c90daf" RegularExpression="^03\|[^|]*\|[^|]*\|Sabotender Guardia\|">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="kill Sabotender Guardia" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
@@ -4666,7 +4798,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="The sabotender emperatriz readies 100,000 Needles" Id="5c0984df-1bb9-4e59-ac6e-bfaa703f5c5c" RegularExpression="The sabotender emperatriz readies 100,000 Needles">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="100,000 Needles" Id="5c0984df-1bb9-4e59-ac6e-bfaa703f5c5c" RegularExpression="^20\|[^|]*\|[^|]*\|Sabotender Emperatriz\|C21\|100,000 Needles\|">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Boss is casting 100000 Needles. Focus on boss" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
@@ -4685,15 +4817,7 @@
           <Folder ZoneFilterEnabled="True" Id="46fa0c4d-6535-49ba-b795-9788e2c22ce9" ZoneFilterRegularExpression="^Cutter's\ Cry$" Name="38 - Cutter's Cry" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dragon's Voice" Id="524d0833-9bc7-48ef-9d39-71340a32bd4e" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|the Dragon's Voice">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="The chimera readies The Ram's Breath" Id="82090e40-5fcb-4026-8105-5644d1ebdd47" RegularExpression="The chimera readies The Ram's Breath">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="The Ram's Breath" Id="82090e40-5fcb-4026-8105-5644d1ebdd47" RegularExpression="^20\|[^|]*\|[^|]*\|Chimera\|44E\|the Ram's Breath\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -4701,30 +4825,9 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name=" Ram's Voice" Id="950b132f-d43a-4b21-adbd-3e5f0765708a" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|the Ram's Voice">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="The chimera readies The Dragon's Breath" Id="f164bc82-7de4-4f7d-9b61-4467e2dcce5e" RegularExpression="The chimera readies The Dragon's Breath">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="The Dragon's Breath" Id="f164bc82-7de4-4f7d-9b61-4467e2dcce5e" RegularExpression="^20\|[^|]*\|[^|]*\|Chimera\|44F\|the Dragon's Breath\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder ZoneFilterEnabled="True" Id="137146cf-6232-4049-b8d0-d3eb47293abe" ZoneFilterRegularExpression="^Dzemael\ Darkhold$" Name="44 - Dzemael Darkhold" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="The All-seeing Eye readies (Dread|Cursed) Gaze" Id="6912dc22-c5ff-4bda-bef5-1e108e03f967" RegularExpression="The All-seeing Eye readies (Dread|Cursed) Gaze">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -4735,7 +4838,7 @@
           <Folder ZoneFilterEnabled="True" Id="da502503-ddea-4bec-a948-044f0852fedc" ZoneFilterRegularExpression="^the\ Aurum\ Vale$" Name="47 - The Aurum Vale" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="Coincounter starts using Eye Of The Beholder on Coincounter" Id="ac664b44-efe5-411f-8527-e852060a622a" RegularExpression="Coincounter starts using Eye Of The Beholder on Coincounter">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Eye Of The Beholder" Id="ac664b44-efe5-411f-8527-e852060a622a" RegularExpression="^20\|[^|]*\|[^|]*\|Coincounter\|277\|Eye of the Beholder\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -4743,7 +4846,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="Coincounter starts using 100-Tonze Swing on Coincounter" Id="934f3e5c-d011-4571-bf74-c85c92003d6e" RegularExpression="Coincounter starts using 100-Tonze Swing on Coincounter">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="100-Tonze Swing" Id="934f3e5c-d011-4571-bf74-c85c92003d6e" RegularExpression="^20\|[^|]*\|[^|]*\|Coincounter\|274\|100-tonze Swing\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -4751,15 +4854,15 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="Coincounter starts using 100-Tonze Swipe on Coincounter" Id="9be39abd-b3fe-4169-bbc8-d64d7a03497f" RegularExpression="Coincounter starts using 100-Tonze Swipe on Coincounter">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="100-Tonze Swipe" Id="9be39abd-b3fe-4169-bbc8-d64d7a03497f" RegularExpression="^20\|[^|]*\|[^|]*\|Coincounter\|40B\|100-tonze Swipe\|">
                 <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
+                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="Coincounter starts using Glower on Coincounter" Id="e6fa0252-e006-449e-a780-ec1f490a383e" RegularExpression="Coincounter starts using Glower on Coincounter">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Glower" Id="e6fa0252-e006-449e-a780-ec1f490a383e" RegularExpression="^20\|[^|]*\|[^|]*\|Coincounter\|275\|Glower\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -4798,7 +4901,7 @@
           <Folder ZoneFilterEnabled="True" Id="8293e063-1238-48b3-ac8b-2daf3cce7b9e" ZoneFilterRegularExpression="^the\ Keeper\ of\ the\ Lake$" Name="50 - The Keeper Of The Lake" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="Einhander readies Heavy Swing" Id="5ad7cdc3-bb01-4b17-af3c-43548986fb31" RegularExpression="Einhander readies Heavy Swing">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Heavy Swing" Id="5ad7cdc3-bb01-4b17-af3c-43548986fb31" RegularExpression="^20\|[^|]*\|[^|]*\|Einhander\|D39\|Heavy Swing\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="c9fbdc2e-1007-4e83-a9d8-d9bc3275e76f" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -4886,7 +4989,7 @@
               <Folder ZoneFilterEnabled="True" Id="c655fe93-8a73-44b1-a77e-bdb969f0c084" ZoneFilterRegularExpression="^the\ World\ of\ Darkness$" Name="50 - The World Of Darkness" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Heat Wave" Id="3b4054d3-0dae-4846-9f4e-1a6d3310c9ca" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|CDE\|Heat Wave" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Heat Wave" Id="3b4054d3-0dae-4846-9f4e-1a6d3310c9ca" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|CDE\|Heat Wave">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="07aba81c-838b-4a86-a150-585c98f0d379" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -4894,7 +4997,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shockwave" Id="8768d98f-ced4-4da4-afae-4ca6a9b193bd" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|D58\|Shockwave" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shockwave" Id="8768d98f-ced4-4da4-afae-4ca6a9b193bd" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|D58\|Shockwave">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c9fbdc2e-1007-4e83-a9d8-d9bc3275e76f" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -4967,7 +5070,7 @@
               <Folder Id="6d3dff9d-9c01-49dd-a1e3-8100d4dcfcec" Name="Chudo-Yudo" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Swinge" Id="055aef1c-f9d2-4d8f-a78f-ff9e139b9346" RegularExpression="^20\|[^|]*\|[^|]*\|Chudo-Yudo\|387\|Swinge" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Swinge" Id="055aef1c-f9d2-4d8f-a78f-ff9e139b9346" RegularExpression="^20\|[^|]*\|[^|]*\|Chudo-Yudo\|387\|Swinge">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5014,7 +5117,7 @@
           <Folder ZoneFilterEnabled="True" Id="fb3cb8a5-e10d-4797-9efd-213cce09f517" ZoneFilterRegularExpression="^Sohm\ Al$" Name="53 - Sohm Al" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="Myath readies Mad Dash" Id="c0e8e82b-5bd0-467e-8730-2e310427ac81" RegularExpression="Myath readies Mad Dash">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name=" Mad Dash" Id="c0e8e82b-5bd0-467e-8730-2e310427ac81" RegularExpression="^20\|[^|]*\|[^|]*\|Myath\|EE0\|Mad Dash\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="a7c24d51-2b0d-4b8d-a9da-a4c943cd149d" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -5048,23 +5151,7 @@
           <Folder ZoneFilterEnabled="True" Id="3d6cccc5-0bce-496d-bb08-21893c26486a" ZoneFilterRegularExpression="^the\ Aetherochemical\ Research\ Facility$" Name="60 - The Aetherochemical Research Facility" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="Harmachis readies Ballistic Missile" Id="2b31b3ca-ae3f-47be-9d1e-fefd6593d377" RegularExpression="Harmachis readies Ballistic Missile">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="fd757050-3100-4feb-a900-51b5c02805ad" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="Harmachis readies Petrifaction" Id="d21befe0-f725-4219-af2e-ce9e25ada19f" RegularExpression="Harmachis readies Petrifaction">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="The Ascian prime begins casting Universal Manipulation" Id="f513254e-4c07-4c55-a833-a985f636856a" RegularExpression="The Ascian prime begins casting Universal Manipulation">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Universal Manipulation" Id="f513254e-4c07-4c55-a833-a985f636856a" RegularExpression="^20\|[^|]*\|[^|]*\|Ascian Prime\|1105\|Universal Manipulation\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="e7e1ac6a-8a11-46c2-aff8-9a4acbab719f" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -5077,7 +5164,7 @@
           <Folder ZoneFilterEnabled="True" Id="b58a0411-2ea9-43e8-b79c-ed3f84f79c49" ZoneFilterRegularExpression="^Xelphatol$" Name="60 - Xelphatol" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="Dotoli Ciloc readies On High" Id="2657f8ed-ba96-4ecb-8b6b-81a62f02039c" RegularExpression="Dotoli Ciloc readies On High">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name=" On High" Id="2657f8ed-ba96-4ecb-8b6b-81a62f02039c" RegularExpression="^20\|[^|]*\|[^|]*\|Dotoli Ciloc\|19CF\|On High\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="b89c53e3-8f46-49e7-a91f-73b222704e99" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -5090,23 +5177,7 @@
           <Folder ZoneFilterEnabled="True" Id="c2a016c2-d31a-452f-95f2-8ba3620d6d92" ZoneFilterRegularExpression="^Baelsar's\ Wall$" Name="60 - Baelsar's Wall" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="The armored weapon uses Dynamic Sensory Jammer" Id="f1c1d1ec-fa4a-463a-bbc9-8a65c9514c12" RegularExpression="The armored weapon uses Dynamic Sensory Jammer">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="07aba81c-838b-4a86-a150-585c98f0d379" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="The Griffin readies Flash Powder" Id="e6ae45c7-6581-4ead-9b29-d7f8a8183124" RegularExpression="The Griffin readies Flash Powder">
-                <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="The Griffin readies Restraint Collar" Id="5b9cf8b4-6ebc-4b43-b5b7-a925b8a8ec59" RegularExpression="The Griffin readies Restraint Collar">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Restraint Collar" Id="5b9cf8b4-6ebc-4b43-b5b7-a925b8a8ec59" RegularExpression="^20\|[^|]*\|[^|]*\|The Griffin\|(1CC8|1CC9)\|Restraint Collar\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="448d6a97-f737-4a8e-9bd1-d2271a984612" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -5119,158 +5190,172 @@
           <Folder Id="d33f7fc6-f861-4b88-92ad-9705ec03f70f" Name="Raids" Enabled="true">
             <Folders>
               <Folder ZoneFilterEnabled="True" Id="1fceb1f0-bb8e-499f-b321-4f109b0c8eef" ZoneFilterRegularExpression="^the\ Void\ Ark$" Name="60 - The Void Ark" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Name="Cetus readies Electric Whorl" Id="2dade118-88ef-4825-8351-b2b8584f5b53" RegularExpression="Cetus readies Electric Whorl">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger">
+                <Folders>
+                  <Folder Id="7210dc36-1535-435f-a152-31d4a1721036" Name="Cetus" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="false" Source="FFXIVNetwork" Name="Electric Swipe" Id="a5d0191c-985c-4b71-aa37-85ceceda134d" RegularExpression="^20\|[^|]*\|[^|]*\|Cetus\|1424\|Electric Swipe\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Cuchulainn readies Bile Below" Id="1a6f8f4d-e638-4da4-a58c-975c7aca2f4c" RegularExpression="Cuchulainn readies Bile Below">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="c4bbfdb9-aa10-406d-ba98-551b9b5a832f" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Electric Whorl" Id="2dade118-88ef-4825-8351-b2b8584f5b53" RegularExpression="^20\|[^|]*\|[^|]*\|Cetus\|1429\|Electric Whorl\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Cuchulainn readies Corrosive Bile" Id="00b750ad-a303-45d8-97e2-9b86eed6d38c" RegularExpression="Cuchulainn readies Corrosive Bile">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Expulsion" Id="abe734ba-866e-432a-956b-dedbcaa80a7c" RegularExpression="^20\|[^|]*\|[^|]*\|Cetus\|1428\|Expulsion\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Cetus readies Expulsion" Id="abe734ba-866e-432a-956b-dedbcaa80a7c" RegularExpression="Cetus readies Expulsion">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                  <Folder Id="01651527-2873-45cb-b0ca-02029e0eb8f9" Name="Cuchulainn" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Bile Below" Id="1a6f8f4d-e638-4da4-a58c-975c7aca2f4c" RegularExpression="^20\|[^|]*\|[^|]*\|Cuchulainn\|143D\|Bile Below\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="c4bbfdb9-aa10-406d-ba98-551b9b5a832f" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="The sawtooth readies Shockwave Stomp" Id="ec087a80-e768-4508-8c66-d3628e0799ce" RegularExpression="The sawtooth readies Shockwave Stomp">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="a334e001-24d2-48c3-aa73-63b9e669b650" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Black Lung" Id="732260c8-26d0-4ed4-a189-a1b11a92e861" RegularExpression="^20\|[^|]*\|[^|]*\|Cuchulainn\|143E\|Black Lung\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Cuchulainn readies Black Lung" Id="732260c8-26d0-4ed4-a189-a1b11a92e861" RegularExpression="Cuchulainn readies Black Lung">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Corrosive Bile" Id="00b750ad-a303-45d8-97e2-9b86eed6d38c" RegularExpression="^20\|[^|]*\|[^|]*\|Cuchulainn\|1436\|Corrosive Bile\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Echidna readies Petrifaction" Id="9ddf6ea0-63ba-4af7-9860-d43e82f79ec6" RegularExpression="Echidna readies Petrifaction">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Pestilence" Id="11875092-c25f-4bbe-a785-780d8efe195c" RegularExpression="^20\|[^|]*\|[^|]*\|Cuchulainn\|1444\|Pestilence\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Cuchulainn readies Pestilence" Id="11875092-c25f-4bbe-a785-780d8efe195c" RegularExpression="Cuchulainn readies Pestilence">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Flailing Tentacles" Id="0513cddd-4b59-4dae-a4c1-7a6c5d9af11a" RegularExpression="^20\|[^|]*\|[^|]*\|Cuchulainn\|143A\|Flailing Tentacles\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="059f64a5-c20c-47d9-a6e5-95590f7d4d4e" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                  <Folder Id="b65af1b1-f855-4173-92ab-dccdb820490d" Name="Echidna" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Abyssal Reaper" Id="bd41b77a-f5a5-4f64-9b72-b04e808736e2" RegularExpression="^20\|[^|]*\|[^|]*\|Echidna\|1418\|Abyssal Reaper\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="false" Name="The sawtooth readies White Breath" Id="3dbbd1d4-b693-4f3f-bb01-6a6e318a10a7" RegularExpression="The sawtooth readies White Breath">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Petrifaction" Id="9ddf6ea0-63ba-4af7-9860-d43e82f79ec6" RegularExpression="^20\|[^|]*\|[^|]*\|Echidna\|1422\|Petrifaction\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Echidna readies Abyssal Reaper" Id="bd41b77a-f5a5-4f64-9b72-b04e808736e2" RegularExpression="Echidna readies Abyssal Reaper">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sickle Strike" Id="b0842808-2b76-4637-a41f-97cb6d672b94" RegularExpression="^20\|[^|]*\|[^|]*\|Echidna\|1421\|Sickle Strike\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Echidna readies Sickle Strike" Id="b0842808-2b76-4637-a41f-97cb6d672b94" RegularExpression="Echidna readies Sickle Strike">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                  <Folder Id="77837d60-a01a-403b-9d2c-d30ecc546a1f" Name="Sawtooth" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shockwave Stomp" Id="ec087a80-e768-4508-8c66-d3628e0799ce" RegularExpression="^20\|[^|]*\|[^|]*\|Sawtooth\|145D\|Shockwave Stomp\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="a334e001-24d2-48c3-aa73-63b9e669b650" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="false" Name="Cetus readies Electric Swipe" Id="a5d0191c-985c-4b71-aa37-85ceceda134d" RegularExpression="Cetus readies Electric Swipe">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                      <Trigger Enabled="false" Source="FFXIVNetwork" Name="White Breath" Id="3dbbd1d4-b693-4f3f-bb01-6a6e318a10a7" RegularExpression="^20\|[^|]*\|[^|]*\|Sawtooth\|1458\|White Breath\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                </Triggers>
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+                <Triggers />
               </Folder>
               <Folder ZoneFilterEnabled="True" Id="9d8237a4-6a2d-4a69-9311-9ce193010aad" ZoneFilterRegularExpression="^the\ Weeping\ City\ Of\ Mhach$" Name="60 - The Weeping City Of Mhach" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="false" Name="Arachne Eve begins casting Frond Affeared" Id="1f1d0596-d2c6-4d59-a481-a8d071d1939e" RegularExpression="Arachne Eve begins casting Frond Affeared">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
+                <Folders>
+                  <Folder Id="b54d7e85-88b0-4efa-a946-ef50d69d26fa" Name="Arachne" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shadow Burst" Id="ad5dc39f-ffb8-4714-84cf-4f0950680881" RegularExpression="^20\|[^|]*\|[^|]*\|Arachne Eve\|1838\|Shadow Burst\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="fd757050-3100-4feb-a900-51b5c02805ad" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="false" Name="Arachne Eve readies Dark Spike" Id="4cd39d68-1359-4f67-ba06-662241211e3c" RegularExpression="Arachne Eve readies Dark Spike">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Go down" Id="362877a9-9b80-4660-9137-d3dab760f6be" RegularExpression="^25\|[^|]*\|[^|]*\|Spitting Spider\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="dda7a474-3ab3-43f4-a7f9-4480f1a8008f" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                  <Folder Id="5809f4ac-57a0-45a6-be3d-4a04f674d89f" Name="Headstone" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Flaring Epigraph" Id="d152a1ba-5b76-4d0e-b902-ea4510107a40" RegularExpression="^20\|[^|]*\|[^|]*\|Headstone\|1856\|Flaring Epigraph\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9ba91125-7272-48b7-b6d9-2aca274a9df9" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Arachne Eve readies Shadow Burst" Id="ad5dc39f-ffb8-4714-84cf-4f0950680881" RegularExpression="Arachne Eve readies Shadow Burst">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="fd757050-3100-4feb-a900-51b5c02805ad" TriggerForce="regexp" ActionType="Trigger">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Forgall begins casting Mega Death" Id="acb712c6-e99b-4cac-a633-9d1a2eb7eafe" RegularExpression="Forgall begins casting Mega Death">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="5de641aa-f083-4b16-9720-f021bd3187c5" TriggerForce="regexp" ActionType="Trigger">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="The headstone begins casting Flaring Epigraph" Id="d152a1ba-5b76-4d0e-b902-ea4510107a40" RegularExpression="The headstone begins casting Flaring Epigraph">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9ba91125-7272-48b7-b6d9-2aca274a9df9" TriggerForce="regexp" ActionType="Trigger">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="The Ozmashade readies Assimilation" Id="df69cc23-099f-49b5-8a3d-70498e77ce14" RegularExpression="The Ozmashade readies Assimilation">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                </Triggers>
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+                <Triggers />
               </Folder>
             </Folders>
             <Triggers />
@@ -5278,7 +5363,7 @@
           <Folder ZoneFilterEnabled="True" Id="a32cc857-3395-4c17-b16c-bed8dfb03900" ZoneFilterRegularExpression="^the\ Lost\ City\ of\ Amdapor\ \(Hard\)$" Name="60 - The Lost City of Amdapor (Hard)" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="The mana pot readies Mysterious Light" Id="24f4318a-df28-4b31-a21a-7da2d1ea1464" RegularExpression="The mana pot readies Mysterious Light">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mysterious Light" Id="24f4318a-df28-4b31-a21a-7da2d1ea1464" RegularExpression="^20\|[^|]*\|[^|]*\|Mana Pot\|16C8\|Mysterious Light\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -5286,7 +5371,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="Achamoth readies Neuro Squama" Id="97f6f7c9-618f-476b-82a1-1fc0ce089c38" RegularExpression="Achamoth readies Neuro Squama">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Neuro Squama" Id="97f6f7c9-618f-476b-82a1-1fc0ce089c38" RegularExpression="^20\|[^|]*\|[^|]*\|Achamoth\|15C5\|Neuro Squama\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -5294,9 +5379,9 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="The rift dragon begins casting Evil Eye" Id="730ae4e9-a1b9-4ee2-94ca-f95d5654dedc" RegularExpression="The rift dragon begins casting Evil Eye">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Evil Eye" Id="730ae4e9-a1b9-4ee2-94ca-f95d5654dedc" RegularExpression="^20\|[^|]*\|[^|]*\|Rift Dragon\|124A\|Evil Eye\|">
                 <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger">
+                  <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -5307,7 +5392,7 @@
           <Folder ZoneFilterEnabled="True" Id="fc2e470c-89d9-4db9-8f4a-f15a5f3007d6" ZoneFilterRegularExpression="^the\ Great\ Gubal\ Library$" Name="59 - The Great Gubal Library" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="The demon tome readies Repel" Id="3095b544-a3d1-4ad6-9e29-2b70e8643fca" RegularExpression="The demon tome readies Repel">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Repel" Id="3095b544-a3d1-4ad6-9e29-2b70e8643fca" RegularExpression="^20\|[^|]*\|[^|]*\|Demon Tome\|DBF\|Repel\|">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="c9fbdc2e-1007-4e83-a9d8-d9bc3275e76f" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
@@ -5322,7 +5407,7 @@
               <Folder ZoneFilterEnabled="True" Id="c0666152-0ce9-448a-8aed-fa7ae28f442e" ZoneFilterRegularExpression="^Alexander\ -\ The\ Arm\ of\ the\ Father$" Name="Alexander - The Arm of the Father" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="The living liquid uses Splash" Id="7b8d4c44-20ad-4332-bd15-8781a1d7f55b" RegularExpression="The living liquid uses Splash" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Splash" Id="7b8d4c44-20ad-4332-bd15-8781a1d7f55b" RegularExpression="^21\|[^|]*\|[^|]*\|Living Liquid\|12EF\|Splash\|" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="5000">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5330,7 +5415,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="The living liquid readies Sluice" Id="9077d0fe-89e0-4a22-912e-6d094f2fb2d5" RegularExpression="The living liquid readies Sluice" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sluice" Id="9077d0fe-89e0-4a22-912e-6d094f2fb2d5" RegularExpression="^20\|[^|]*\|[^|]*\|Living Liquid\|12F4\|Sluice\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="f3d274d8-84bb-4398-b1cf-4412cc7f4678" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5338,7 +5423,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="The living liquid readies Wash Away" Id="ec3c9bcc-9695-4827-b608-79313df21e71" RegularExpression="The living liquid readies Wash Away" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wash Away" Id="ec3c9bcc-9695-4827-b608-79313df21e71" RegularExpression="^20\|[^|]*\|[^|]*\|Living Liquid\|12FF\|Wash Away\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c9fbdc2e-1007-4e83-a9d8-d9bc3275e76f" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5346,7 +5431,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="The living liquid readies Cascade" Id="6aa38cbf-749b-46b5-b4ad-6c03ee0231bb" RegularExpression="The living liquid readies Cascade" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cascade" Id="6aa38cbf-749b-46b5-b4ad-6c03ee0231bb" RegularExpression="^20\|[^|]*\|[^|]*\|Living Liquid\|12F7\|Cascade\|" PrevActions="Interrupt" RefirePeriodExpression="5000">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5370,68 +5455,108 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder ZoneFilterEnabled="True" Id="aae4e0de-6712-4c0f-9851-181dd9232593" ZoneFilterRegularExpression="^Containment\ Bay\ Z1T9\ \(Extreme\)$" Name="Containment Bay Z1T9 (Extreme) - [Zurvan]" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Name="Zurvan readies Flare Star" Id="adbb634a-d152-4ba9-b64d-8769129bedbd" RegularExpression="Zurvan readies Flare Star" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="f3d274d8-84bb-4398-b1cf-4412cc7f4678" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+              <Folder Id="aae4e0de-6712-4c0f-9851-181dd9232593" ZoneFilterRegularExpression="^Containment\ Bay\ Z1T9*." Name="Containment Bay Z1T9 - [Zurvan]" Enabled="true">
+                <Folders>
+                  <Folder ZoneFilterEnabled="True" Id="6f77b059-1a96-472e-b014-1cc7e9ce1835" ZoneFilterRegularExpression="^Containment\ Bay\ \(Z1T9\)$" Name="Normal" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Flare Star" Id="adbb634a-d152-4ba9-b64d-8769129bedbd" RegularExpression="^20\|[^|]*\|[^|]*\|Zurvan\|1E1E\|Flare Star\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="0aec41b3-fb42-4831-9170-f037daa7b8f2" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Zurvan readies Biting Halberd" Id="b98babae-ad27-4e47-88a9-25ec466891af" RegularExpression="Zurvan readies Biting Halberd" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ciclicle" Id="e4b32620-3bd3-4340-a106-15f5b2ae1b69" RegularExpression="^20\|[^|]*\|[^|]*\|Zurvan\|1E2B\|Ciclicle\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Zurvan readies Southern Cross" Id="14cf92d1-5e53-4216-bb80-a017e7892148" RegularExpression="Zurvan readies Southern Cross" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="45f475c3-4137-4ab6-8b36-c824ce99be5a" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wave Cannon" Id="c4cd377b-d25a-4971-b186-616f7d37fe85" RegularExpression="^20\|[^|]*\|[^|]*\|Zurvan\|1E3D\|Wave Cannon\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Zurvan readies Ciclicle" Id="e4b32620-3bd3-4340-a106-15f5b2ae1b69" RegularExpression="Zurvan readies Ciclicle" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tyrfing" Id="57362d79-2ca1-4d5f-bec9-a161f1178801" RegularExpression="^20\|[^|]*\|[^|]*\|Zurvan\|1E37\|Tyrfing\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="1C73:Zurvan starts using Wave Cannon" Id="c4cd377b-d25a-4971-b186-616f7d37fe85" RegularExpression="1C73:Zurvan starts using Wave Cannon on (?&lt;player&gt;[a-zA-Z-' ]{3,21})" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Southern Cross" Id="14cf92d1-5e53-4216-bb80-a017e7892148" RegularExpression="^20\|[^|]*\|[^|]*\|Zurvan\|1E2C\|Southern Cross\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="45f475c3-4137-4ab6-8b36-c824ce99be5a" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Trigger>
-                  <Trigger Enabled="true" Name="The execrated wile readies Meracydian Fear" Id="fbd8bab8-95c9-44e3-9d01-a61a7810f036" RegularExpression="The execrated wile readies Meracydian Fear" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                  <Folder ZoneFilterEnabled="True" Id="1475d70c-4ae6-4d5e-b0f7-025f00e204f6" ZoneFilterRegularExpression="^Containment\ Bay\ Z1T9\ \(Extreme\)$" Name="Extreme" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Meracydian Fear" Id="fbd8bab8-95c9-44e3-9d01-a61a7810f036" RegularExpression="^20\|[^|]*\|[^|]*\|Execrated Wile\|1E36\|Meracydian Fear\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tail End" Id="18a93b65-3cc4-4e54-9bdd-503e7703f926" RegularExpression="^20\|[^|]*\|[^|]*\|Zurvan\|1C5A\|Tail End\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c9fbdc2e-1007-4e83-a9d8-d9bc3275e76f" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Zurvan readies Tyrfing" Id="57362d79-2ca1-4d5f-bec9-a161f1178801" RegularExpression="Zurvan readies Tyrfing" PrevActions="Interrupt">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tyrfing" Id="48590877-b704-4815-a51d-86178c9b2a14" RegularExpression="^20\|[^|]*\|[^|]*\|Zurvan\|1C6D\|Tyrfing\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="And" />
-                  </Trigger>
-                </Triggers>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Biting Halberd" Id="b98babae-ad27-4e47-88a9-25ec466891af" RegularExpression="^20\|[^|]*\|[^|]*\|Zurvan\|1C59\|Biting Halberd\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="3da2b8d7-f084-4654-9773-6600ea806841" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Flare Star" Id="80f5f115-e7f1-4a3f-a5d3-24a0753b08ab" RegularExpression="^20\|[^|]*\|[^|]*\|Zurvan\|1C4E\|Flare Star\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="0aec41b3-fb42-4831-9170-f037daa7b8f2" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Southern Cross" Id="adc115af-75cc-42d5-ada7-b1d14c159256" RegularExpression="^20\|[^|]*\|[^|]*\|Zurvan\|1C5C\|Southern Cross\|">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="45f475c3-4137-4ab6-8b36-c824ce99be5a" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+                <Triggers />
               </Folder>
               <Folder ZoneFilterEnabled="True" Id="a8e67bbf-18e6-4cd0-9af0-78d58c997df9" ZoneFilterRegularExpression="^Alexander\ -\ The\ Fist\ of\ the\ Son$" Name="Alexander - The Fist of the Son" Enabled="true">
                 <Folders>
@@ -5460,7 +5585,7 @@
               <Folder ZoneFilterEnabled="True" Id="53f7c50b-1efb-4996-bb4d-0a3df2297aad" ZoneFilterRegularExpression="^the\ Minstrel's\ Ballad:\ Nidhogg's\ Rage$" Name="The Minstrel's Ballad: Nidhogg's Rage" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="Nidhogg readies Hot Tail" Id="be6042e2-f510-423e-b1b1-8b5e1efee93d" RegularExpression="Nidhogg readies Hot Tail" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hot Tail" Id="be6042e2-f510-423e-b1b1-8b5e1efee93d" RegularExpression="^20\|[^|]*\|[^|]*\|Nidhogg\|179E\|Hot Tail\|">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="4f3f0902-12b6-4125-b822-3164421527b5" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5468,7 +5593,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Nidhogg readies Hot Wing" Id="d5e50814-f69b-41e2-ab7a-a5ac12b80d7e" RegularExpression="Nidhogg readies Hot Wing" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hot Wing" Id="d5e50814-f69b-41e2-ab7a-a5ac12b80d7e" RegularExpression="^20\|[^|]*\|[^|]*\|Nidhogg\|179C\|Hot Wing\|">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="34f2184a-a89a-4a5d-b8e6-755e25d32c0d" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5476,7 +5601,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Nidhogg uses Mortal Chorus" Id="5085ae62-3e73-4c21-ae88-dd83b0424b34" RegularExpression="Nidhogg uses Mortal Chorus" PrevActions="Interrupt" RefirePeriodExpression="10000">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mortal Chorus" Id="5085ae62-3e73-4c21-ae88-dd83b0424b34" RegularExpression="^20\|[^|]*\|[^|]*\|Nidhogg\|(188A|18B0)\|Mortal Chorus\|" RefirePeriodExpression="10000">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5484,7 +5609,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="0044:Nidhogg:Come, my children! Claim the vengeance that is rightfully yours!" Id="11460ae5-ec61-4a93-ab32-c8e84d21b2b5" RegularExpression="0044:Nidhogg:Come, my children! Claim the vengeance that is rightfully yours!" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Stay behind, Shadow Dragon" Id="11460ae5-ec61-4a93-ab32-c8e84d21b2b5" RegularExpression="^03\|[^|]*\|[^|]*\|Shadow Dragon\|">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Stay behind, Shadow Dragon" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5498,7 +5623,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Nidhogg readies Ala Morn" Id="c4bcdcc7-4549-413b-9a0c-c25db10d1946" RegularExpression="Nidhogg readies Ala Morn" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ala Morn" Id="c4bcdcc7-4549-413b-9a0c-c25db10d1946" RegularExpression="^20\|[^|]*\|[^|]*\|Nidhogg\|17B4\|Ala Morn\|">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5506,7 +5631,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="17BD:Nidhogg's Claw starts using Self-Detonate on Nidhogg's Claw" Id="d8b13589-bdd9-47b0-8088-75179018154f" RegularExpression="17BD:Nidhogg's Claw starts using Self-Detonate on Nidhogg's Claw" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Self-Detonate" Id="d8b13589-bdd9-47b0-8088-75179018154f" RegularExpression="^20\|[^|]*\|[^|]*\|Nidhogg\|17BD\|Self-detonate\|">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Attack Blue Pillar" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="24e27d75-9e4b-4f03-97c4-2998e8b9b4b8" TriggerForce="regexp" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5608,9 +5733,9 @@
               <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="199202701312" ZoneFilterEnabled="True" Id="1d70a0c7-9260-4103-90bd-95007cb177cb" ZoneFilterRegularExpression="^Alexander\ -\ The\ Soul\ of\ the\ Creator$" Name="Alexander - The Soul Of The Creator" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="Alexander Prime readies Timegate&#xA;" Id="f746f83e-4877-4c59-8401-5348a900e373" RegularExpression="Alexander Prime readies Timegate&#xA;" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Timegate&#xA;" Id="f746f83e-4877-4c59-8401-5348a900e373" RegularExpression="^20\|[^|]*\|[^|]*\|Alexander Prime\|1A03\|Timegate\|">
                     <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="e7e1ac6a-8a11-46c2-aff8-9a4acbab719f" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="672f594f-f86a-4feb-86b5-1dc77bee9511" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -5621,7 +5746,7 @@
               <Folder ZoneFilterEnabled="True" Id="81604c75-5d2f-446c-a12b-057195fd6f89" ZoneFilterRegularExpression="^Alexander\ -\ The\ Heart\ of\ the\ Creator$" Name="Alexander - The Heart Of The Creator" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="1A52:Cruise Chaser starts using Optical Sight on Cruise Chaser" Id="a5749cf3-b4b2-4b59-9dd5-21f63ceec138" RegularExpression="1A52:Cruise Chaser starts using Optical Sight on Cruise Chaser" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="1A52: Optical Sight" Id="a5749cf3-b4b2-4b59-9dd5-21f63ceec138" RegularExpression="^20\|[^|]*\|[^|]*\|Cruise Chaser\|1A52\|Optical Sight\|">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="f3d274d8-84bb-4398-b1cf-4412cc7f4678" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5629,7 +5754,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="The Cruise Chaser readies Spin Crusher" Id="0402a884-1a49-4405-abb2-5eb6df59c4d9" RegularExpression="The Cruise Chaser readies Spin Crusher" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spin Crusher" Id="0402a884-1a49-4405-abb2-5eb6df59c4d9" RegularExpression="^20\|[^|]*\|[^|]*\|Cruise Chaser\|1A60\|Spin Crusher\|">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="43d8f059-51ba-42e9-b070-cbbd409c6531" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5637,7 +5762,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="1A51:Cruise Chaser starts using Optical Sight on Cruise Chaser" Id="d738a623-b056-4cd6-833f-caffd8aabd53" RegularExpression="1A51:Cruise Chaser starts using Optical Sight on Cruise Chaser" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="1A51: Optical Sight" Id="d738a623-b056-4cd6-833f-caffd8aabd53" RegularExpression="^20\|[^|]*\|[^|]*\|Cruise Chaser\|1A51\|Optical Sight\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="bffeb9ed-6c5b-4ec5-9ca3-6cc27266c2f0" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5645,7 +5770,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="The Cruise Chaser readies GA-100" Id="bfcf4129-04a8-40c9-9d0e-f1b68ece9a78" RegularExpression="The Cruise Chaser readies GA-100" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="GA-100" Id="bfcf4129-04a8-40c9-9d0e-f1b68ece9a78" RegularExpression="^20\|[^|]*\|[^|]*\|Cruise Chaser\|1A59\|GA-100\|">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5653,7 +5778,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="The Cruise Chaser readies Eternal Darkness" Id="df19f379-1292-42fc-92e7-95bff37984fe" RegularExpression="The Cruise Chaser readies Eternal Darkness" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Eternal Darkness" Id="df19f379-1292-42fc-92e7-95bff37984fe" RegularExpression="^20\|[^|]*\|[^|]*\|Cruise Chaser\|1A19\|Eternal Darkness\|">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5661,7 +5786,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="The Cruise Chaser readies Propeller Wind" Id="c4a5f44e-8684-4453-b53e-845c3cfd90a7" RegularExpression="The Cruise Chaser readies Propeller Wind" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Propeller Wind" Id="c4a5f44e-8684-4453-b53e-845c3cfd90a7" RegularExpression="^20\|[^|]*\|[^|]*\|Cruise Chaser\|1A58\|Propeller Wind\|">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="d3f24308-60c8-436a-924c-ae9071c4954b" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5669,7 +5794,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="And" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="The Cruise Chaser readies Limit Cut" Id="06e3a4e6-58cc-4c9b-a8d4-4f4907a825af" RegularExpression="The Cruise Chaser readies Limit Cut" PrevActions="Interrupt">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Limit Cut" Id="06e3a4e6-58cc-4c9b-a8d4-4f4907a825af" RegularExpression="^20\|[^|]*\|[^|]*\|Cruise Chaser\|1A80\|Limit Cut\|">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Attack shield from front" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
@@ -5682,6 +5807,14 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Transform" Id="14169e3f-440a-4d4a-bffe-02ef0ef10508" RegularExpression="^21\|[^|]*\|[^|]*\|Cruise Chaser\|1A49\|Transform\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="b8dd89d4-8ef8-4f75-822e-838e8405d2a4" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
                   </Trigger>
                 </Triggers>
               </Folder>
