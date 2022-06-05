@@ -1,0 +1,7 @@
+__pycache__/
+.git/
+venv*/
+dev/
+
+# Pycharm
+.idea/
