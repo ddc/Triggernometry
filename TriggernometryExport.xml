@@ -217,64 +217,6 @@
           </Folder>
           <Folder Id="f051aa4a-9983-40c3-990e-f12a126102b9" Name="Deactivate" Enabled="true">
             <Folders>
-              <Folder Id="5bd4cef6-7c94-4a83-b22a-499a6bb529c8" Name="Deactivate_ant" Enabled="false">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="false" Name="Deactivate everything - 5 (except ast cards)" Id="51d6e2c9-fec0-49b7-8a03-b8bd935dc42e" RegularExpression="(You have joined the critical engagement|Your item level has been synced to|You gain [^|]* mettle|is no longer sealed!)" DebugLevel="Verbose">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="36" TextAuraName="ta_.*" TextAuraFontName="Times New Roman" ActionType="TextAura" RefireInterrupt="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="36" TextAuraName="jta_.*" TextAuraFontName="Times New Roman" ActionType="TextAura" RefireInterrupt="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="3" AuraOp="DeactivateAllAura" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" ActionType="Aura" ExecutionDelayExpression="30">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="4" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerOp="CancelAllTrigger" ActionType="Trigger" ExecutionDelayExpression="30">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="false" Name="Deactivate everything - 2 (msg)" Id="7ad5db41-59ef-49c6-a76d-a1127b59e964" RegularExpression="(has ended|You have left the sanctuary|01:Changed Zone|0839:You change to|You have been rewarded for your contribution in slaying the mark.)" DebugLevel="Verbose">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 1" Id="140821b7-5a16-47bb-82eb-58180930ac91" RegularExpression="^03\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" DebugLevel="Verbose">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Trigger>
-                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 3 (death)" Id="13767794-052f-4f6e-92c0-f342bcf7f591" RegularExpression="^25\|[^|]*\|[^|]*\|(?&lt;player&gt;[^|]*)" DebugLevel="Verbose">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Trigger>
-                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Deactivate everything - 4 (wipe/clear)" Id="2a08f1cb-8c5b-4d46-a670-0dc515085ea3" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|400000(?&gt;03|10)" DebugLevel="Verbose">
-                    <Actions>
-                      <Action OrderNumber="1" TextAuraFontSize="22.2" TextAuraFontName="Microsoft Sans Serif" TriggerId="fb4989b7-34b8-41be-8698-24e74197b60d" TriggerForce="regexp" ActionType="Trigger">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                </Triggers>
-              </Folder>
               <Folder Id="ef5c7044-0ae1-4440-8538-7470c0c24e73" Name="Deactivat_new" Enabled="true">
                 <Folders />
                 <Triggers>
@@ -340,6 +282,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="^You mount" ExpressionTypeR="String" ConditionType="RegexMatch" />
                       <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="^You have (entered|left) a sanctuary.$" ExpressionTypeR="String" ConditionType="RegexMatch" />
                       <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="objectives complete!$" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                      <ConditionSingle Enabled="true" ExpressionL="${msg}" ExpressionTypeL="String" ExpressionR="The map's glyph of passage opens the path forward!" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Trigger>
                 </Triggers>
@@ -630,14 +573,14 @@
                           <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="396" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="22.2" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="astDrawRanged" TextAuraExpression="Ranged" TextAuraXIniExpression="800" TextAuraYIniExpression="1320" TextAuraWIniExpression="110" TextAuraHIniExpression="40" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="100">
+                      <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="22.2" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="astDrawRanged" TextAuraExpression="Ranged" TextAuraXIniExpression="785" TextAuraYIniExpression="1320" TextAuraWIniExpression="110" TextAuraHIniExpression="40" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="100">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="392" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                           <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="395" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                           <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="396" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="22.2" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="astDrawMelee" TextAuraExpression="Melee" TextAuraXIniExpression="800" TextAuraYIniExpression="1320" TextAuraWIniExpression="110" TextAuraHIniExpression="40" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="100">
+                      <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="22.2" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="astDrawMelee" TextAuraExpression="Melee" TextAuraXIniExpression="783" TextAuraYIniExpression="1320" TextAuraWIniExpression="110" TextAuraHIniExpression="40" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="100">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="391" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                           <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="String" ExpressionR="393" ExpressionTypeR="String" ConditionType="StringEqualCase" />
@@ -5055,6 +4998,27 @@
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Aetheric Boom" Id="2134549f-f8ad-41e7-a14f-8318d0f9ae97" RegularExpression="^20\|[^|]*\|[^|]*\|The Ultima Weapon\|5E7\|Aetheric Boom\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="67f87de1-978c-4d7b-b38f-54665341203f" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="3000" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder ZoneFilterEnabled="True" Id="6f4c6497-f0cd-4a01-ac23-0fb81d51bfc0" ZoneFilterRegularExpression="^A\ Relic\ Reborn:\ the\ Hydra$" Name="A Relic Reborn: The Hydra" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Fear Itself" Id="32d70009-fab1-4d29-ac16-57651daf54dd" RegularExpression="^20\|[^|]*\|[^|]*\|Hydra\|500\|Fear Itself\|" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Radiant Breath" Id="829bf963-c551-4330-839b-5edd7e444c12" RegularExpression="^20\|[^|]*\|[^|]*\|Hydra\|2B1\|Radiant Breath\|" PrevActions="Interrupt">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
