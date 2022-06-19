@@ -62,7 +62,7 @@
           <Folder Id="22b382cb-0064-497a-806b-00a41434f310" Name="Countdown" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="Battle commencing" Id="07af674c-23f0-4b1b-a686-739d7a157d94" RegularExpression="Battle commencing in (?&lt;time&gt;[0-9]+) seconds" RefirePeriodExpression="1000">
+              <Trigger Enabled="true" Name="Battle commencing" Id="07af674c-23f0-4b1b-a686-739d7a157d94" RegularExpression="Battle commencing in (?&lt;time&gt;[0-9]+) seconds" PrevActions="Interrupt" RefirePeriodExpression="1000">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerOp="CancelTrigger" TriggerId="cba1ec6d-5143-4fb3-8ec4-bb0e07141ef3" ActionType="Trigger" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
@@ -70,15 +70,15 @@
                   <Action OrderNumber="2" UseTTSTextExpression="Pulling in ${time} seconds" TextAuraFontSize="0" ActionType="UseTTS" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_pulling" TextAuraExpression="Pulling in ${time} seconds" TextAuraXIniExpression="${var:Xmid}" TextAuraYIniExpression="${var:Yone}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraOTickExpression="(75+(cos(${_sincems}/50)*25))" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura" RefireInterrupt="True">
+                  <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_pulling" TextAuraExpression="Pulling in ${time} seconds" TextAuraXIniExpression="${var:Xmid}" TextAuraYIniExpression="${var:Yone}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraOTickExpression="(75+(cos(${_sincems}/50)*25))" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" Enabled="False" ActionType="TextAura" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                  <Action OrderNumber="4" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" Enabled="False" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" UseTTSTextExpression="5" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="UseTTS" RefireInterrupt="True">
+                  <Action OrderNumber="5" UseTTSTextExpression="5" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" Enabled="False" ActionType="UseTTS" RefireInterrupt="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
@@ -104,7 +104,7 @@
                     </Condition>
                   </Action>
                 </Actions>
-                <Condition Enabled="false" Grouping="Xor" />
+                <Condition Enabled="false" Grouping="And" />
               </Trigger>
               <Trigger Enabled="true" Name="Countdown canceled" Id="cba1ec6d-5143-4fb3-8ec4-bb0e07141ef3" RegularExpression="Countdown canceled by (?&lt;player&gt;[0-9a-zA-Z-'you ]{1,31})">
                 <Actions>
@@ -140,10 +140,10 @@
                   <Action OrderNumber="4" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_engage" TextAuraFontName="Times New Roman" ActionType="TextAura" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="5" TextAuraAlignment="BottomCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_engage" TextAuraExpression="ENGAGE" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yone}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                  <Action OrderNumber="5" TextAuraAlignment="BottomCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_engage" TextAuraExpression="ENGAGE" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yone}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" Enabled="False" ActionType="TextAura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="6" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_engage" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="3000" RefireInterrupt="True">
+                  <Action OrderNumber="6" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_engage" TextAuraFontName="Times New Roman" Enabled="False" ActionType="TextAura" ExecutionDelayExpression="3000" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -186,7 +186,7 @@
                   <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="25.8" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_emotes1" TextAuraExpression="${player} ${msg} you" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Ysix}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" TextAuraOp="DeactivateAura" TextAuraFontSize="22.2" TextAuraName="ta_emotes1" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="10000">
+                  <Action OrderNumber="4" TextAuraOp="DeactivateAura" TextAuraFontSize="22.2" TextAuraName="ta_emotes1" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="15000">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -205,7 +205,7 @@
                   <Action OrderNumber="3" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="25.8" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_emotes2" TextAuraExpression="${player} ${msg1} ${msg2} " TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Ysix}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" TextAuraOp="DeactivateAura" TextAuraFontSize="22.2" TextAuraName="ta_emotes2" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="10000">
+                  <Action OrderNumber="4" TextAuraOp="DeactivateAura" TextAuraFontSize="22.2" TextAuraName="ta_emotes2" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="15000">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -4987,7 +4987,7 @@
               <Folder ZoneFilterEnabled="True" Id="86d98097-d321-464d-bd40-7be3b32ee098" ZoneFilterRegularExpression="^the\ Minstrel's\ Ballad:\ Ultima's\ Bane$" Name="The Minstrel's Ballad: Ultima's Bane" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tank Purge" Id="40c1c9a8-e5db-43f3-ad07-72ed917b1ce7" RegularExpression="^20\|[^|]*\|[^|]*\|The Ultima Weapon\|5EA\|Tank Purge\|" PrevActions="Interrupt">
+                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Tank Purge" Id="40c1c9a8-e5db-43f3-ad07-72ed917b1ce7" RegularExpression="^20\|[^|]*\|[^|]*\|The Ultima Weapon\|5EA\|Tank Purge\|" PrevActions="Interrupt">
                     <Actions>
                       <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -7265,6 +7265,27 @@
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Karmic Flames" Id="b654adad-11be-4684-b209-cc580422a9cb" RegularExpression="^20\|[^|]*\|[^|]*\|Daivadipa\|6793\|Karmic Flames" PrevActions="Interrupt">
                         <Actions>
                           <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                  <Folder Id="0110e22e-32a3-414c-b74b-8ee1196ee1ed" Name="Yilan" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mini Light" Id="847323ea-8a7c-4d6a-a9af-559a5d921751" RegularExpression="^20\|[^|]*\|[^|]*\|Yilan\|6A5F\|Mini Light\|" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Devour" Id="5ae8e089-4faa-41d5-bb45-f4ae7d1ee8ac" RegularExpression="^20\|[^|]*\|[^|]*\|Yilan\|6A60\|Devour\|" PrevActions="Interrupt">
+                        <Actions>
+                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="9c8b1644-c487-463b-8c4f-77210447e8ac" TriggerForce="regexp" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
