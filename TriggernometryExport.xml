@@ -114,13 +114,13 @@
                   <Action OrderNumber="2" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_pulling" TextAuraFontName="Times New Roman" ActionType="TextAura" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" UseTTSTextExpression="Countdown canceled by ${player}" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS" RefireInterrupt="True">
+                  <Action OrderNumber="3" UseTTSTextExpression="Countdown canceled by ${player}" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS" ExecutionDelayExpression="1000" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="4" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_countdownCanceled" TextAuraExpression="Countdown canceled by ${player}" TextAuraXIniExpression="${var:Xmid}" TextAuraYIniExpression="${var:Yone}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="5" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_countdownCanceled" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="5000" RefireInterrupt="True">
+                  <Action OrderNumber="5" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_countdownCanceled" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -464,7 +464,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="And" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Look Away" Id="ee211c13-89b2-4138-a648-33c7a8a383a3" RegularExpression="^20\|[^|]*\|[^|]*\|(?&lt;npc&gt;[^|]*)\|(?&lt;spellid&gt;[^|]*)\|(?&lt;spellname&gt;[^|]*)" PrevActions="Interrupt" Description="Mortal Gaze&#xD;&#xA;&#xA;Cursed Gaze&#xA;&#xD;&#xA;Dread Gaze&#xA;&#xD;&#xA;Empty Gaze&#xA;&#xD;&#xA;Stone Gaze&#xD;&#xA;&#xA;Petro Eyes&#xD;&#xA;&#xA;Neuro Squama&#xD;&#xA;============= NOT Match - Names&#xD;&#xA;Angra Mainyu|&#xD;&#xA;Illumoth|6E3D|Neuro Squama&#xD;&#xA;Necropsyche|46A8|Neuro Squama">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Look Away" Id="92289149-1e56-4c3b-b8d9-c1f8ac6673da" RegularExpression="^20\|[^|]*\|[^|]*\|(?&lt;npc&gt;[^|]*)\|(?&lt;spellid&gt;[^|]*)\|(?&lt;spellname&gt;[^|]*)" PrevActions="Interrupt" RefirePeriodExpression="3000" Description="Mortal Gaze&#xD;&#xA;&#xA;Cursed Gaze&#xA;&#xD;&#xA;Dread Gaze&#xA;&#xD;&#xA;Empty Gaze&#xA;&#xD;&#xA;Stone Gaze&#xD;&#xA;&#xA;Petro Eyes&#xD;&#xA;&#xA;Neuro Squama&#xD;&#xA;============= NOT Match - Names&#xD;&#xA;Angra Mainyu|&#xD;&#xA;Illumoth|6E3D|Neuro Squama&#xD;&#xA;Necropsyche|46A8|Neuro Squama">
             <Actions>
               <Action OrderNumber="1" TextAuraFontSize="36" TextAuraFontName="Times New Roman" TriggerId="411c331c-6ed0-4049-b0a5-fc7511f0f1ad" TriggerForce="regexp" ActionType="Trigger" RefireInterrupt="True">
                 <Condition Enabled="false" Grouping="Or" />
@@ -483,15 +483,16 @@
                 <ConditionSingle Enabled="true" ExpressionL="${spellname}" ExpressionTypeL="String" ExpressionR="Stone Gaze" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 <ConditionSingle Enabled="true" ExpressionL="${spellname}" ExpressionTypeL="String" ExpressionR="the Dragon's Gaze" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 <ConditionSingle Enabled="true" ExpressionL="${spellname}" ExpressionTypeL="String" ExpressionR="Divine Spark" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                <ConditionGroup Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${spellname}" ExpressionTypeL="String" ExpressionR="Overlong Glance" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="Numeric" ExpressionR="2346" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </ConditionGroup>
+                <ConditionGroup Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${npc}" ExpressionTypeL="String" ExpressionR="Tamamo Gozen" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="Numeric" ExpressionR="2346" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </ConditionGroup>
               </ConditionGroup>
-              <ConditionSingle Enabled="true" ExpressionL="${npc}" ExpressionTypeL="String" ExpressionR="Angra Mainyu" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-              <ConditionSingle Enabled="true" ExpressionL="${npc}" ExpressionTypeL="String" ExpressionR="Necropsyche" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-              <ConditionSingle Enabled="true" ExpressionL="${npc}" ExpressionTypeL="String" ExpressionR="Illumoth" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
-              <ConditionGroup Enabled="true" Grouping="And">
-                <ConditionSingle Enabled="true" ExpressionL="${npc}" ExpressionTypeL="String" ExpressionR="Tamamo Gozen" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                <ConditionSingle Enabled="true" ExpressionL="${spellid}" ExpressionTypeL="Numeric" ExpressionR="2346" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                <ConditionSingle Enabled="true" ExpressionL="${spellname}" ExpressionTypeL="String" ExpressionR="Overlong Glance" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${npc}" ExpressionTypeL="String" ExpressionR="Angra Mainyu|Gorgon|Illumoth|Necropsyche" ExpressionTypeR="String" ConditionType="RegexNotMatch" />
             </Condition>
           </Trigger>
         </Triggers>
@@ -1251,7 +1252,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="And" />
           </Trigger>
-          <Trigger Enabled="false" Source="FFXIVNetwork" Name="Template" Id="ff5a0eff-53bb-4f97-ae17-93a764680c03" RegularExpression="regex">
+          <Trigger Enabled="false" Source="FFXIVNetwork" Name="Template" Id="ff5a0eff-53bb-4f97-ae17-93a764680c03" RegularExpression="regex" PrevActions="Interrupt">
             <Actions>
               <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
@@ -3059,6 +3060,48 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Follow Charge" Id="e139c010-cfe7-4388-a6f7-ed354711b6bd" RegularExpression="" PrevActions="Interrupt">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Follow Charge" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_fCharge" TextAuraExpression="Follow Charge" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_fCharge" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="Left" Id="d1d45292-3617-426c-8866-a1a9a3d2d2c8" RegularExpression="" PrevActions="Interrupt">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Left" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_left" TextAuraExpression="Left" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_left" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="Right" Id="1f824316-d5eb-4a0f-bacc-98c35c1922e8" RegularExpression="" PrevActions="Interrupt">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Right" TextAuraFontSize="36" TextAuraFontName="Times New Roman" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraForeground="#C80000" TextAuraOutline="Black" TextAuraName="ta_right" TextAuraExpression="Right" TextAuraXIniExpression="${var:Xright}" TextAuraYIniExpression="${var:Yseven}" TextAuraWIniExpression="${var:width}" TextAuraHIniExpression="${var:height}" TextAuraOIniExpression="${var:opacity}" TextAuraUseOutline="True" TextAuraFontName="Times New Roman" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TextAuraOp="DeactivateAura" TextAuraFontSize="36" TextAuraName="ta_right" TextAuraFontName="Times New Roman" ActionType="TextAura" ExecutionDelayExpression="10000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
         </Triggers>
       </Folder>
       <Folder Id="7ffade72-09ee-47b9-9e1c-59fd34ec56de" Name="0 - Other Dungeons" Enabled="true">
@@ -4506,17 +4549,41 @@
                           </Trigger>
                         </Triggers>
                       </Folder>
+                      <Folder Id="2f8d5f72-b44b-42b3-b73d-26b92b68e5f8" Name="Fates" Enabled="true">
+                        <Folders>
+                          <Folder Id="8f656ae1-d71d-4316-b1d2-06132f15b181" Name="Red Comet II" Enabled="true">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Choco Meteor" Id="d8cbb990-9697-4632-a18c-2b391e66e4b9" RegularExpression="^20\|[^|]*\|[^|]*\|Red Comet II\|60C1\|Choco Meteor\|" PrevActions="Interrupt">
+                                <Actions>
+                                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ab7f4b5-5f0c-469d-a318-b363025f7fda" TriggerForce="regexp" ActionType="Trigger">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="And" />
+                                <Conditions />
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="6c83391c-6934-4dac-9fe0-7efd02276381" Name="Graven Familiar" Enabled="true">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Inhale" Id="2dd10bb8-1ecf-4d62-a3ba-c46140a4d2ea" RegularExpression="^20\|[^|]*\|[^|]*\|Graven Familiar\|52B2\|Inhale\|" PrevActions="Interrupt">
+                                <Actions>
+                                  <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="6c563594-2fe7-4fb9-9f7a-d236312f59de" TriggerForce="regexp" ActionType="Trigger">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="And" />
+                                <Conditions />
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                        </Folders>
+                        <Triggers />
+                      </Folder>
                     </Folders>
-                    <Triggers>
-                      <Trigger Enabled="true" Name="The graven familiar readies Inhale" Id="f9918e4e-60c9-4239-b976-d394c5ac9402" RegularExpression="The graven familiar readies Inhale" PrevActions="Interrupt">
-                        <Actions>
-                          <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="6c563594-2fe7-4fb9-9f7a-d236312f59de" TriggerForce="regexp" ActionType="Trigger">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="And" />
-                      </Trigger>
-                    </Triggers>
+                    <Triggers />
                   </Folder>
                 </Folders>
                 <Triggers>
@@ -4645,6 +4712,80 @@
                   </Folder>
                 </Folders>
                 <Triggers />
+              </Folder>
+            </Folders>
+            <Triggers />
+          </Folder>
+          <Folder ZoneFilterEnabled="True" Id="3e524b1e-4308-4fcf-9f77-ba82258daf6e" ZoneFilterRegularExpression="^The\ Sil'dihn\ Subterrane$" Name="The Sil'dihn Subterrane" Enabled="true">
+            <Folders>
+              <Folder Id="ee64f1c4-d4a0-49ea-bd3f-89b18ca8da6e" Name="Silkie" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Squeaky Left" Id="5ca6bf8b-9204-4c70-b5aa-5e8b37e8671f" RegularExpression="^20\|[^|]*\|[^|]*\|Silkie\|772E\|Squeaky Left\|" RefirePeriodExpression="3000">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1f824316-d5eb-4a0f-bacc-98c35c1922e8" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Carpet Beater" Id="61612e42-7b17-4269-ae9f-d991f1222aa9" RegularExpression="^20\|[^|]*\|[^|]*\|Silkie\|772B\|Carpet Beater\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c6ba9e34-0674-408f-872d-6d1a11350852" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Squeaky Right" Id="931195b5-dc70-4c23-a12d-7e31463e500f" RegularExpression="^20\|[^|]*\|[^|]*\|Silkie\|772D\|Squeaky Right\|" RefirePeriodExpression="3000">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="d1d45292-3617-426c-8866-a1a9a3d2d2c8" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Chilling Suds" Id="c9ea7728-1fdb-49bb-a690-4fba3afebd36" RegularExpression="^20\|[^|]*\|[^|]*\|Silkie\|7736\|Chilling Suds\|" RefirePeriodExpression="3000">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="9e634745-6eea-4adc-9fd0-4bbbbeb797f0" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Bracing Suds" Id="17bc49b6-4a71-4f39-b295-a0983f8d4126" RegularExpression="^20\|[^|]*\|[^|]*\|Silkie\|7735\|Bracing Suds\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="1ce49238-3961-4fd5-b271-4c59b6b22b13" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Slippery Soap" Id="a7cc09ef-8a6f-4d9f-a2b9-18cd3b7a21ea" RegularExpression="^20\|[^|]*\|[^|]*\|Silkie\|773A\|Slippery Soap\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="e139c010-cfe7-4388-a6f7-ed354711b6bd" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dust Bluster" Id="8197572d-5205-4927-b0f9-0f5bd24d66f9" RegularExpression="^20\|[^|]*\|[^|]*\|Silkie\|7744\|Dust Bluster\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="c9fbdc2e-1007-4e83-a9d8-d9bc3275e76f" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Total Wash" Id="01df4e96-d8a1-491e-abbe-12023b6619c7" RegularExpression="^20\|[^|]*\|[^|]*\|Silkie\|772C\|Total Wash\|">
+                    <Actions>
+                      <Action OrderNumber="1" TextAuraFontSize="7.8" TextAuraFontName="Times New Roman" TriggerId="cc174fcd-da8f-49ca-a3e3-569fb0968d66" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
+                  </Trigger>
+                </Triggers>
               </Folder>
             </Folders>
             <Triggers />
